@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.msnvideopt" name="Msn Vídeo Portugal" version="0.0.2" provider-name="techdealer">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <language>en</language>
+    <platform>all</platform>
+    <summary lang="en">Msn Vídeo Portugal</summary>
+    <description lang="en">Acesso aos videos do portal Msn Vídeo Portugal.</description>
+    <platform>all</platform>
+  </extension>
+</addon>

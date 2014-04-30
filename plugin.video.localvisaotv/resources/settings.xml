@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+   <category label="Definicoes gerais">
+	  <setting label="Videos por página" type="slider" id="vid_per_page" default="15" range="10,1,20" option="int" />
+	   <setting label="Mostrar opcão 'Vídeos por Concelho' no Arquivo" type="bool" id="disp_vid_p_conc" default="true"/>
+   </category>
+</settings>

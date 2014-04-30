@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.localvisaotv" name="LocalVisão TV" version="0.0.7" provider-name="techdealer">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <language>en</language>
+    <platform>all</platform>
+    <summary lang="en">LocalVisão TV</summary>
+    <description lang="en">Notícias e reportagens de âmbito regional, desportivo e académico.</description>
+    <platform>all</platform>
+  </extension>
+</addon>

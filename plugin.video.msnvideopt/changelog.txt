@@ -1,0 +1,6 @@
+Versão 0.0.2
+* Adicionada barra de loading a procurar fonte
+* Corrigido bug: depois de procurar fonte, caso se retrocedesse o vídeo abria na mesma em vez de fechar a janela
+
+Versão 0.0.1
+* Lançamento da primeira versão do addon
