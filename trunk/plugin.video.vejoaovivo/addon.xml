@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.vejoaovivo" name="Vejo ao Vivo" version="0.0.3" provider-name="techdealer">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <language>en</language>
+    <platform>all</platform>
+    <summary lang="en">Vejo ao Vivo</summary>
+    <description lang="en">Mais de 800 Câmeras AO VIVO em Todo o Brasil! Veja sua cidade preferida, praias, condições das ondas e a situação do trânsito nas rodovias, 24 horas por dia!</description>
+    <platform>all</platform>
+  </extension>
+</addon>

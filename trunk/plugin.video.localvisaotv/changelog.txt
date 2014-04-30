@@ -1,0 +1,25 @@
+Versão 0.0.7
+* Corrigido bug no arquivo em que o addon dava erro em páginas com um único video
+
+Versão 0.0.6
+* Adicionado suporte ao arquivo de videos da localvisão tv, permitindo:
+  -listar os últimos videos publicados no canal
+  -efectuar pesquisas no arquivo
+  -listar videos de acordo com o concelho
+
+Versão 0.0.5
+* Corrigido bug em que os videos carregavam sem imagem
+
+Versão 0.0.4
+* Definido um timeout maior para a função abrir_url, para evitar timeout erros
+
+Versão 0.0.3
+* Velocidade do add-on melhorada (já não tem de abrir todas as páginas para extrair conteúdo)
+* Número máximo de items por página configurável reduzido para 20, devido a limitação
+* Barra de progresso/loading removida
+
+Versão 0.0.2
+* Corrigido problema na reprodução de videos com o skin touch do ipad
+
+Versão 0.0.1
+* Lançamento da primeira versão do addon

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addons>
+<addon id="plugin.video.footazo" name="Footazo" version="0.0.1" provider-name="techdealer">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <language>en</language>
+    <platform>all</platform>
+    <summary lang="en">Footazo</summary>
+    <description lang="en">O mundo do futebol em vÃ­deo.</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.localvisaotv" name="LocalVisÃ£o TV" version="0.0.7" provider-name="techdealer">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <language>en</language>
+    <platform>all</platform>
+    <summary lang="en">LocalVisÃ£o TV</summary>
+    <description lang="en">NotÃ­cias e reportagens de Ã¢mbito regional, desportivo e acadÃ©mico.</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.msnvideopt" name="Msn VÃ­deo Portugal" version="0.0.2" provider-name="techdealer">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <language>en</language>
+    <platform>all</platform>
+    <summary lang="en">Msn VÃ­deo Portugal</summary>
+    <description lang="en">Acesso aos videos do portal Msn VÃ­deo Portugal.</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.replaypt" name="Replay PT" version="0.1.8" provider-name="techdealer">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <language>en</language>
+    <platform>all</platform>
+    <summary lang="en">Replay PT</summary>
+    <description lang="en">Replay PT Ã© um agregador de episÃ³dios de novelas e sÃ©ries em lÃ­ngua portuguesa.</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.vejoaovivo" name="Vejo ao Vivo" version="0.0.3" provider-name="techdealer">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <language>en</language>
+    <platform>all</platform>
+    <summary lang="en">Vejo ao Vivo</summary>
+    <description lang="en">Mais de 800 CÃ¢meras AO VIVO em Todo o Brasil! Veja sua cidade preferida, praias, condiÃ§Ãµes das ondas e a situaÃ§Ã£o do trÃ¢nsito nas rodovias, 24 horas por dia!</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="repository.techdealer" name="Techdealer Repo" version="1.0.1" provider-name="Techdealer">
+	<extension point="xbmc.addon.repository" name="Techdealer Repo">
+		<info compressed="false">https://techdealer-xbmc.googlecode.com/svn/trunk/addons.xml</info>
+		<checksum>https://techdealer-xbmc.googlecode.com/svn/trunk/addons.xml.md5</checksum>
+		<datadir zip="false">https://techdealer-xbmc.googlecode.com/svn/trunk/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Techdealer Repo</summary>
+		<description>Techdealer XBMC repo</description>
+		<disclaimer></disclaimer>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="script.teletextopt"
+       name="Teletexto PT"
+       version="0.1.5"
+       provider-name="techdealer">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.script"
+             library="addon.py" />
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <summary lang="en">Teletexto PT</summary>
+    <description lang="en">Este addon possibilita a consulta das pÃ¡ginas de teletexto dos canais portugueses RTP e SIC.</description>
+  </extension>
+</addon>
+</addons>

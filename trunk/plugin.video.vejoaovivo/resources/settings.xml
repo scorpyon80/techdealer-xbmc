@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+   <category label="Definições gerais">
+      <setting label="Tipo de stream" type="enum" id="typestream" default="0" values="Rtmp|M3u8"/>
+	  <setting label="Cameras por página" type="slider" id="videos_per_page" default="20" range="5,1,50" option="int" />
+   </category>
+</settings>
