@@ -11,12 +11,12 @@
     <language>en</language>
     <platform>all</platform>
     <summary lang="en">Footazo</summary>
-    <description lang="en">O mundo do futebol em vÃ­deo.</description>
+    <description lang="en">O mundo do futebol em vídeo.</description>
     <platform>all</platform>
   </extension>
 </addon>
 
-<addon id="plugin.video.localvisaotv" name="LocalVisÃ£o TV" version="0.0.7" provider-name="techdealer">
+<addon id="plugin.video.localvisaotv" name="LocalVisão TV" version="0.0.7" provider-name="techdealer">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -26,13 +26,13 @@
   <extension point="xbmc.addon.metadata">
     <language>en</language>
     <platform>all</platform>
-    <summary lang="en">LocalVisÃ£o TV</summary>
-    <description lang="en">NotÃ­cias e reportagens de Ã¢mbito regional, desportivo e acadÃ©mico.</description>
+    <summary lang="en">LocalVisão TV</summary>
+    <description lang="en">Notícias e reportagens de âmbito regional, desportivo e académico.</description>
     <platform>all</platform>
   </extension>
 </addon>
 
-<addon id="plugin.video.msnvideopt" name="Msn VÃ­deo Portugal" version="0.0.2" provider-name="techdealer">
+<addon id="plugin.video.msnvideopt" name="Msn Vídeo Portugal" version="0.0.2" provider-name="techdealer">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -42,8 +42,8 @@
   <extension point="xbmc.addon.metadata">
     <language>en</language>
     <platform>all</platform>
-    <summary lang="en">Msn VÃ­deo Portugal</summary>
-    <description lang="en">Acesso aos videos do portal Msn VÃ­deo Portugal.</description>
+    <summary lang="en">Msn Vídeo Portugal</summary>
+    <description lang="en">Acesso aos videos do portal Msn Vídeo Portugal.</description>
     <platform>all</platform>
   </extension>
 </addon>
@@ -59,7 +59,7 @@
     <language>en</language>
     <platform>all</platform>
     <summary lang="en">Replay PT</summary>
-    <description lang="en">Replay PT Ã© um agregador de episÃ³dios de novelas e sÃ©ries em lÃ­ngua portuguesa.</description>
+    <description lang="en">Replay PT é um agregador de episódios de novelas e séries em língua portuguesa.</description>
     <platform>all</platform>
   </extension>
 </addon>
@@ -75,7 +75,7 @@
     <language>en</language>
     <platform>all</platform>
     <summary lang="en">Vejo ao Vivo</summary>
-    <description lang="en">Mais de 800 CÃ¢meras AO VIVO em Todo o Brasil! Veja sua cidade preferida, praias, condiÃ§Ãµes das ondas e a situaÃ§Ã£o do trÃ¢nsito nas rodovias, 24 horas por dia!</description>
+    <description lang="en">Mais de 800 Câmeras AO VIVO em Todo o Brasil! Veja sua cidade preferida, praias, condições das ondas e a situação do trânsito nas rodovias, 24 horas por dia!</description>
     <platform>all</platform>
   </extension>
 </addon>
@@ -106,7 +106,7 @@
   <extension point="xbmc.addon.metadata">
     <platform>all</platform>
     <summary lang="en">Teletexto PT</summary>
-    <description lang="en">Este addon possibilita a consulta das pÃ¡ginas de teletexto dos canais portugueses RTP e SIC.</description>
+    <description lang="en">Este addon possibilita a consulta das páginas de teletexto dos canais portugueses RTP e SIC.</description>
   </extension>
 </addon>
 </addons>
