@@ -97,7 +97,7 @@ def Descricao(url,name):
 					facebook_message_reply = decoded_data_2['data'][x]['message'].encode('utf-8')
 					if facebook_message_reply.endswith('\n'):
 						facebook_message_reply = facebook_message_reply[:-1]
-					comments = comments+'[COLOR orange][B]»»[/B][/COLOR] Resposta de [COLOR orange]'+facebook_name_reply+'[/COLOR] a [COLOR blue]'+facebook_name+'[/COLOR]: [I]('+facebook_like_count_reply+' likes)[/I]\n'+facebook_message_reply+'\n\n'
+					comments = comments+'[COLOR orange][B]»»[/B][/COLOR] Resposta de [COLOR orange]'+facebook_name_reply+'[/COLOR]: [I]('+facebook_like_count_reply+' likes)[/I]\n'+facebook_message_reply+'\n\n'
 	if comments == '':
 		comments = '[COLOR red]Sem comentários.[/COLOR]\n\n'
 	if progress.iscanceled():
@@ -114,8 +114,6 @@ def Procurar_fontes(url,name,iconimage):
 	progress = xbmcgui.DialogProgress()
 	progress.create('Footazo', 'Procurando fonte...')
 	progress.update(0)
-	if progress.iscanceled():
-		sys.exit(0)
 	playlist = xbmc.PlayList(1)
 	playlist.clear()
 	try:
@@ -227,6 +225,8 @@ def Procurar_fontes(url,name,iconimage):
 		#player.ooyala.com não suportado - total 2 videos
 		#meta.ua não suportado - total 1 video
 		#wat.tv não suportado - total 1 video
+		if progress.iscanceled():
+			sys.exit(0)
 		progress.update(100)
 		progress.close()
 		if len(playlist) == 0:
