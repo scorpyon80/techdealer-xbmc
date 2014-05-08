@@ -9,7 +9,7 @@ Versão 0.1.9 - (08/05/2014)
 * Alterações na zona do Brail:
   -Site assistirnovelas.tv: adicionado suporte ao novo tipo de player externo carregado via js
   -Adicionado suporte ao site curtadoc.tv (curtas metragens)
-  -Adicionado suporte ao site curtadoc.tv (podcasts br)
+  -Adicionado suporte ao site podflix.com.br (podcasts br)
 
 Versão 0.1.8 - (24/04/2014)
 * Adicionado suporte à listagem e reprodução de podcasts
