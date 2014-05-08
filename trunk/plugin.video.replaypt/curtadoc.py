@@ -4,7 +4,6 @@
 
 ##############BIBLIOTECAS A IMPORTAR E DEFINICOES####################
 import urllib,urllib2,re,xbmcplugin,xbmcgui,sys,xbmc,xbmcaddon,xbmcvfs,socket,HTMLParser
-import json
 h = HTMLParser.HTMLParser()
 
 addon_id = 'plugin.video.replaypt'
@@ -12,37 +11,31 @@ selfAddon = xbmcaddon.Addon(id=addon_id)
 addonfolder = selfAddon.getAddonInfo('path')
 artfolder = '/resources/img/'
 
-maisnovelas_url = 'http://www.maisnovelas.net/'
+curtadoc_url = 'http://curtadoc.tv/'
 ##################################################
 
-def CATEGORIES_maisnovelas():
-	addDir('[B]Mudar para categorias[/B]',maisnovelas_url,410,addonfolder+artfolder+'maisnovelas.png',True)
-	listar_episodios(maisnovelas_url)
-
-def alterar_vista(url):
-	addDir('[B]Mudar para últimas[/B]',url,407,addonfolder+artfolder+'maisnovelas.png')
-	try: codigo_fonte = abrir_url(url)
-	except: codigo_fonte = ''
+def listar_categorias():
+	try:
+		codigo_fonte = abrir_url(curtadoc_url+'acervo/')
+	except:
+		codigo_fonte = ''
 	if codigo_fonte:
-		match = re.compile('class="level-0" value="(.+?)">(.+?)</option>').findall(codigo_fonte)
-		for cat,titulo in match:
-			addDir(titulo,url + '?cat=' + str(cat),408,addonfolder+artfolder+'maisnovelas.png')
+		match = re.findall('<div class="box-content darkcyan">.*?<h3 class="dark">(.+?)</h3>.*?<div class="destaque">.*?<img src="(.*?)".*?>.*?<a href="(.+?)" class="more_info">ver mais ([\d]+)  curtas</a>.*?</div>', codigo_fonte, re.DOTALL)
+		for name, iconimage, url, count in match:
+			addDir(name + ' - ' + count + ' curtas',url,446,iconimage)
 		
 def listar_episodios(url):
-    try: codigo_fonte = abrir_url(url)
-    except: codigo_fonte = ''
+    try:
+		codigo_fonte = abrir_url(url)
+    except:
+		codigo_fonte = ''
     if codigo_fonte:
-		match = re.findall('<div class="item">.+?<img.+?src="(.+?)".+?>.+?<div class="content"><h2><strong><a href="(.+?)">(.+?)</a></strong></h2></div>.+?</div>', codigo_fonte, re.DOTALL)
-		for iconimage, url, name in match:
-			try:
-				addDir(name,url,409,iconimage,False)
-			except: pass
-		try:	
-			match_2 = re.compile('<a class="nextpostslink" href="(.+?)">').findall(codigo_fonte)
-			for urlnext in match_2:
-				addDir('[B]Próxima >>[/B]',urlnext,408,addonfolder+artfolder+'maisnovelas.png')
-		except:
-			pass
+		match = re.findall('<div class="curta-box span4">.*?<div class="destaque">.*?<a href=\'(.+?)\'>.*?<img src=["\'](.*?)["\'].*?>.*?<div class="fancy">.*?<div class="title">.*?<h4>[\W]+(.+?)                                        </h4>.*?<div class=\'sinopse\'>.*?</div>', codigo_fonte, re.DOTALL)
+		for url, iconimage, name in match:
+			addDir(name,url,447,iconimage,False)	
+		next_page = re.search('<a class="next page-numbers" href="(.+?)">Próxima »</a>', codigo_fonte)
+		if next_page != None:
+				addDir('[B]Próxima >>[/B]',next_page.group(1),446,addonfolder+artfolder+'curtadoc.png')
 
 def procurar_fontes(url,name,iconimage):
 	progress = xbmcgui.DialogProgress()
@@ -59,7 +52,8 @@ def procurar_fontes(url,name,iconimage):
 		for trunk in html_source_trunk:
 			try:
 				iframe = re.compile('src="(.+?)"').findall(trunk)[0]
-			except: iframe = ''
+			except:
+				iframe = ''
 			if iframe:
 				if iframe.find('youtube') > -1:
 					resolver_iframe = youtube_resolver(iframe)
@@ -69,17 +63,17 @@ def procurar_fontes(url,name,iconimage):
 					resolver_iframe = daily_resolver(iframe)
 					if resolver_iframe != 'daily_nao resolvido':
 						playlist.add(resolver_iframe,xbmcgui.ListItem(name, thumbnailImage=iconimage))
-				elif iframe.find('vk.com') > -1:
-					resolver_iframe = vkcom_resolver(iframe)
-					if resolver_iframe != 'vkcom_nao resolvido':
+				elif iframe.find('vimeo.com') > -1:
+					resolver_iframe = vimeo_resolver(iframe)
+					if resolver_iframe != 'vimeo_nao resolvido':
 						playlist.add(resolver_iframe,xbmcgui.ListItem(name, thumbnailImage=iconimage))
-				elif iframe.find('r7.com') > -1:
-					resolver_iframe = r7_resolver(iframe)
-					if resolver_iframe != 'r7_nao resolvido':
+				elif iframe.find('videolog.tv') > -1:
+					resolver_iframe = videologtv_resolver(iframe)
+					if resolver_iframe != 'videologtv_nao resolvido':
 						playlist.add(resolver_iframe,xbmcgui.ListItem(name, thumbnailImage=iconimage))
-				elif iframe.find('sbt.com.br') > -1:
-					resolver_iframe = sbtcombr_resolver(iframe)
-					if resolver_iframe != 'sbtcombr_nao resolvido':
+				elif iframe.find('portacurtas.org.br') > -1:
+					resolver_iframe = portacurtas_resolver(iframe)
+					if resolver_iframe != 'portacurtas_nao resolvido':
 						playlist.add(resolver_iframe,xbmcgui.ListItem(name, thumbnailImage=iconimage))
 		if progress.iscanceled():
 			sys.exit(0)
@@ -92,8 +86,8 @@ def procurar_fontes(url,name,iconimage):
 			try:
 				xbmc.Player().play(playlist)		
 			except:
-				pass	
-
+				pass
+			
 def youtube_resolver(url):
 	match = re.compile('.*?youtube.com/embed/([^?"]+).*?').findall(url)
 	if match:
@@ -105,54 +99,30 @@ def daily_resolver(url):
     else: match = re.compile('/embed/video/(.*)').findall(url)
     if match:
         return 'plugin://plugin.video.dailymotion_com/?mode=playVideo&url=' + str(match[0])
-    else: return 'daily_nao resolvido'
+    else:
+		return 'daily_nao resolvido'
 	
-def vkcom_resolver(url):
-	match = re.compile('http://vk.com/video_ext.php\?oid=([\d]+?)&.*?id=([\d]+?)&.*?hash=([A-Za-z0-9]+).*?').findall(url)
-	if match != None:
-		for oid, id, hash in match:
-			codigo_fonte_2 = abrir_url('http://vk.com/video_ext.php?oid=' + oid + '&id=' + id + '&hash=' + hash)
-			match_2 = re.search('url1080=(.+?).1080.mp4', codigo_fonte_2)
-			if match_2 != None:
-				return match_2.group(1)+'.1080.mp4'
-			match_2 = re.search('url720=(.+?).720.mp4', codigo_fonte_2)
-			if match_2 != None:
-				return match_2.group(1)+'.720.mp4'
-			match_2 = re.search('url480=(.+?).480.mp4', codigo_fonte_2)
-			if match_2 != None:
-				return match_2.group(1)+'.480.mp4'
-			match_2 = re.search('url360=(.+?).360.mp4', codigo_fonte_2)
-			if match_2 != None:
-				return match_2.group(1)+'.360.mp4'
-			match_2 = re.search('url240=(.+?).240.mp4', codigo_fonte_2)
-			if match_2 != None:
-				return match_2.group(1)+'.240.mp4'
-			return 'vkcom_nao resolvido'
+def vimeo_resolver(url):
+	match = re.search('/([0-9]+)', url)
+	if match:
+		return 'plugin://plugin.video.vimeo/?action=play_video&videoid='+match.group(1)
 	else:
-		return 'vkcom_nao resolvido'
+		return 'vimeo_nao resolvido'
 
-def r7_resolver(url):
-    source = abrir_url(url)
-    match = re.compile("media src='(.+?)'").findall(source)
-    if match: return match[0]
-    else: return 'r7_nao_resolvido'
-	
-def sbtcombr_resolver(url):
-	codigo_fonte = abrir_url(h.unescape(url))
-	match = re.search('<iframe.+?src="(.+?)"', codigo_fonte)
-	if match != None:
-		codigo_fonte_2 = abrir_url(match.group(1))
-		match_2 = re.search('window.mediaJson = (.+?);', codigo_fonte_2)
-		if match_2 != None:
-			try:
-				decoded_data = json.loads(match_2.group(1))
-				for x in range(0, len(decoded_data['deliveryRules'])):
-					if decoded_data['deliveryRules'][x]['rule']['ruleName'] == 'r1':
-						return decoded_data['deliveryRules'][x]['outputList'][0]['url']
-			except:
-				pass
+def videologtv_resolver(url):
+	try:
+		url = url.split("id_video=")[-1].split("?")[0]
+		codigo_fonte = abrir_url('http://api.videolog.tv/video/'+url+'.json')
+		return json.loads(codigo_fonte)['video']['url_mp4']
+	except:
+		return 'videologtv_nao resolvido'
+
+def portacurtas_resolver(url):
+	match = re.search('&shortName=([^&]+)', url)
+	if match:
+		return 'http://www.videosrelevantes.com.br/flvpc/'+match.group(1)+'.flv'
 	else:
-		return 'sbtcombr resolvido'
+		return 'portacurtas_nao resolvido'
 						
 ############################################################################################################################
 

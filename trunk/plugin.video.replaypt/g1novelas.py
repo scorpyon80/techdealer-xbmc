@@ -3,7 +3,7 @@
 # Copyright 2014 Mafarricos
 
 ##############BIBLIOTECAS A IMPORTAR E DEFINICOES####################
-import urllib,urllib2,re,xbmcplugin,xbmcgui,sys,xbmc,xbmcaddon,xbmcvfs,socket,urlresolver,HTMLParser
+import urllib,urllib2,re,xbmcplugin,xbmcgui,sys,xbmc,xbmcaddon,xbmcvfs,socket,HTMLParser
 import json
 h = HTMLParser.HTMLParser()
 

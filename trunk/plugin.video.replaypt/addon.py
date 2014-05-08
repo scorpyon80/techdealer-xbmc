@@ -56,6 +56,8 @@ import todosdocumentarios
 import filmesportugueses
 import docverdade
 import webdocumentarios
+import curtadoc
+import podflix
 
 h = HTMLParser.HTMLParser()
 
@@ -125,7 +127,9 @@ def SER_SIC():
 	addDir('Uma Aventura (Fonte: FNunes94 channel)','1',200,addonfolder+artfolder+'foldericon.png',playlist_id = 'PLRrd7-_JAWxgW0MaPY1NCvLSqtMW9PuuT')
 	
 def NOV_TVI():
+	addDir('A Jóia de África (Fonte: mary1sofia channel)','1',200,addonfolder+artfolder+'foldericon.png',playlist_id = 'PLFfuPRYEifM2tWTIyT2a7zkD1zfOXoXpN')
 	addDir('A Outra (Fonte: TVStory Portugal)','A%20OUTRA',401,addonfolder+artfolder+'foldericon.png')
+	addDir('Anjo Selvagem (Fonte: tvificcao channel)','1',200,addonfolder+artfolder+'foldericon.png',playlist_id = 'PLLJ97C61sSs8Vouf2jI4WSRcrP3slQLfy')
 	addDir('Anjo Meu (Fonte: espirit0indomavel channel)','1',201,addonfolder+artfolder+'foldericon.png',search_query = 'allintitle:"Anjo Meu"',channel_id = 'espirit0indomavel')
 	addDir('Belmonte (Fonte: TVStory Portugal)','1',402,addonfolder+artfolder+'foldericon.png',search_query = 'allintitle:"Belmonte"',channel_id = 'BELMONTE')
 	addDir('Belmonte (Fonte: SerenaSM channel)','1',201,addonfolder+artfolder+'foldericon.png',search_query = 'allintitle:"Belmonte"',channel_id = 'SerenaSM')
@@ -150,15 +154,18 @@ def NOV_TVI():
 	addDir('Mistura Fina (Fonte: Portugal TV channel)','1',200,addonfolder+artfolder+'foldericon.png',playlist_id = 'PLEPrnBzo5vK3z-Omf_SovaZgcFusoYBFJ')
 	addDir('Morangos com Açucar 1 (Fonte: VerMorangosOnline)','1',201,addonfolder+artfolder+'foldericon.png',search_query = 'allintitle:"Morangos com Açúcar 1"',channel_id = 'vermorangosonline')
 	addDir('Morangos com Açucar 1 (Fonte: FNunes94 channel)','1',200,addonfolder+artfolder+'foldericon.png',playlist_id = 'PLRrd7-_JAWxgnx99ye8SzjpyAZf8TODUu')
+	addDir('Morangos com Açucar 2 (Fonte: morangosonline Dailymotion)','1',204,addonfolder+artfolder+'foldericon.png',playlist_id = 'x36p74')
 	addDir('Morangos com Açucar 3 (Fonte: il0veit.com)','1',201,addonfolder+artfolder+'foldericon.png',search_query = 'allintitle:"Morangos Com Açúcar 3"',channel_id = 'iloveittvi')
 	addDir('Morangos com Açucar 7 (Fonte: thedanielasofia12)','1',201,addonfolder+artfolder+'foldericon.png',search_query = 'allintitle:"Morangos Com Açucar 7"',channel_id = 'thedanielasofia12')
 	addDir('Morangos com Açucar 8 (Fonte: MissSaruska)','1',201,addonfolder+artfolder+'foldericon.png',search_query = 'allintitle:"Morangos com Açúcar 8"',channel_id = 'MissSaruska')
 	addDir('Morangos com Açucar 9 (Fonte: VerMorangosOnline)','1',201,addonfolder+artfolder+'foldericon.png',search_query = 'allintitle:"Morangos com Açúcar 9"',channel_id = 'vermorangosonline')
 	addDir('Mundo ao Contrário (Fonte: tugarec)','1',204,addonfolder+artfolder+'foldericon.png',playlist_id = 'x2l6lj')
 	addDir('O Beijo do Escorpião (Fonte: TVStory Portugal)','O%20BEIJO%20DO%20ESCORPI%C3%83O',401,addonfolder+artfolder+'foldericon.png')
+	addDir('O Teu Olhar (Fonte: mary1sofia channel)','1',201,addonfolder+artfolder+'foldericon.png',search_query = 'allintitle:"O Teu Olhar"',channel_id = 'mary1sofia')
 	addDir('Sedução (Fonte: minicash channel)','1',201,addonfolder+artfolder+'foldericon.png',search_query = 'allintitle:"Telenovela SEDUÇÃO"',channel_id = 'minicashsantaclara')
 	addDir('Sentimentos (Fonte: SerenaSM channel)','1',201,addonfolder+artfolder+'foldericon.png',search_query = 'allintitle:"Sentimentos"',channel_id = 'SerenaSM')
 	addDir('Super Pai (Fonte: FNunes94 channel)','1',200,addonfolder+artfolder+'foldericon.png',playlist_id = 'PLRrd7-_JAWxgdXgysXlb8EG51jpPrGBqV')
+	addDir('Super Pai (Fonte: tvificcao channel)','1',200,addonfolder+artfolder+'foldericon.png',playlist_id = 'PLLJ97C61sSs-PZYCSmhBPYIkQMWDHGfkP')
 	addDir('Tempo de Viver (Fonte: FNunes94 channel)','1',200,addonfolder+artfolder+'foldericon.png',playlist_id = 'PLRrd7-_JAWxhGnmtJSZBjz4SDIN26OtKO')
 	addDir('Último Beijo (Fonte: formyworld dailymotion)','1',205,addonfolder+artfolder+'foldericon.png',search_query = 'O Último Beijo',channel_id = 'formyworld')
 	
@@ -169,12 +176,12 @@ def SER_TVI():
 	addDir('Giras e Falidas (Fonte: TVStory Portugal)','GIRAS%20E%20FALIDAS',401,addonfolder+artfolder+'foldericon.png')
 	addDir('Inspector Max (Fonte: FNunes94 channel)','1',200,addonfolder+artfolder+'foldericon.png',playlist_id = 'PLRrd7-_JAWxhkpHq_1lC8X9J73m9izG-D')
 	addDir('Inspector Max (Fonte: beto4384 channel)','1',201,addonfolder+artfolder+'foldericon.png',search_query = 'allintitle:"Inspector Max"',channel_id = 'beto4384')
-	addDir('Masterchef Portugal (Fonte: remedi0santotvi channel)','1',201,addonfolder+artfolder+'foldericon.png',search_query = 'allintitle:"Masterchef Portugal"',channel_id = 'remedi0santotvi')
 	addDir('Melhor do que falecer (Fonte: tvi.iol.pt)','1',436,addonfolder+artfolder+'foldericon.png')
 	addDir('O Bairro (Fonte: FNunes94 channel)','1',200,addonfolder+artfolder+'foldericon.png',playlist_id = 'PLRrd7-_JAWxg_ShOulIV2UNhbhVGeU91z')
 	addDir('O Bairro (Fonte: TVStory Portugal)','O%20BAIRRO',401,addonfolder+artfolder+'foldericon.png')
 	addDir('Os batanetes (Fonte: cabe917357295 channel)','1',201,addonfolder+artfolder+'foldericon.png',search_query = 'allintitle:"batanetes"',channel_id = 'cabe917357295')
 	addDir('Série 37 (Fonte: FNunes94 channel)','1',200,addonfolder+artfolder+'foldericon.png',playlist_id = 'PLRrd7-_JAWxjywWYnOIe31L7gGCNWhKHG')
+	addDir('Série 37 (Fonte: mary1sofia channel)','1',201,addonfolder+artfolder+'foldericon.png',playlist_id = 'PLFfuPRYEifM36WCQcQRL48tlxbu4OXrlP')
 
 def RADIO_PT():
 	addDir('[B]M80 Podcasts[/B]','',10,addonfolder+artfolder+'m80.jpg')
@@ -229,6 +236,8 @@ def BRASIL():
 	addDir('todosdocumentarios.blogspot.com','',425,addonfolder+artfolder+'todosdocumentarios.png')
 	addDir('docverdade.blogspot.com','',432,addonfolder+artfolder+'docverdade.png')
 	addDir('webdocumentarios.com','',437,addonfolder+artfolder+'webdocumentarios.png')
+	addDir('curtadoc.tv','',445,addonfolder+artfolder+'curtadoc.png')
+	addDir('podflix.com.br','',448,addonfolder+artfolder+'podflix.png')
 
 ###################################################################################
 #FUNÇÕES PARA LISTAR CONTEÚDOS DE SERVIÇOS DE VIDEO
@@ -375,7 +384,7 @@ def listar_podcasts(url,mode,playlist_id):
 		if len(decoded_data['query']['results']['item']) > 0:
 			for x in range(0, len(decoded_data['query']['results']['item'])):
 				data = decoded_data['query']['results']['item'][x]['pubDate'].encode("utf8")
-				data_timezone = re.search('^(.+) (GMT|[-+][\d]+)$', data)
+				data_timezone = re.search('^(.+) (GMT|EDT|[-+][\d]+)$', data)
 				if data_timezone:
 					data = data[:-(len(data_timezone.group(2))+1)]
 				name = decoded_data['query']['results']['item'][x]['title'].encode("utf8")
@@ -573,18 +582,18 @@ def listar_tsf_podcasts():
 	if codigo_fonte:
 		active_podcasts_html=re.search('<div class="podcasts_left">(.+?)</span>', codigo_fonte, re.DOTALL)
 		if active_podcasts_html:
-			addDir('[COLOR blue][B]Podcasts Activos[/B][/COLOR]','',441,'',False)
+			addDir('[COLOR blue][B]Podcasts Activos[/B][/COLOR]','',441,addonfolder+artfolder+'foldericon.png',False)
 			match=re.findall('<ul><li><a class="titlnk" href="(.+?)".*?>(.+?)</a></li></ul>', active_podcasts_html.group(1))
 			if match:
 				for link, name in match:
-					addDir(name.decode('latin-1').encode("utf-8"),'1',208,'',playlist_id=link)
+					addDir(name.decode('latin-1').encode("utf-8"),'1',208,addonfolder+artfolder+'foldericon.png',playlist_id=link)
 		arquivo_podcasts_html=re.search('<div class="podcasts_arquivo">(.+?)</span>', codigo_fonte, re.DOTALL)
 		if arquivo_podcasts_html:
-			addDir('[COLOR blue][B]Podcasts Arquivados[/B][/COLOR]','',441,'',False)
+			addDir('[COLOR blue][B]Podcasts Arquivados[/B][/COLOR]','',441,addonfolder+artfolder+'foldericon.png',False)
 			match=re.findall('<ul><li><a class="titlnk" href="(.+?)".*?>(.+?)</a></li></ul>', arquivo_podcasts_html.group(1))
 			if match:
 				for link, name in match:
-					addDir(name.decode('latin-1').encode("utf-8"),'1',208,'',playlist_id=link)
+					addDir(name.decode('latin-1').encode("utf-8"),'1',208,addonfolder+artfolder+'foldericon.png',playlist_id=link)
 
 def listar_rr_podcasts():
 	try:
@@ -594,32 +603,32 @@ def listar_rr_podcasts():
 	if codigo_fonte:
 		tab1inf_html=re.search("<div id='tab1Inf' class='tab-content-rss'>(.+?)<div id='tab2BB' class='tab-content-rss'>", codigo_fonte, re.DOTALL)
 		if tab1inf_html:
-			addDir('[COLOR blue][B]Informação[/B][/COLOR]','',442,'',False)
+			addDir('[COLOR blue][B]Informação[/B][/COLOR]','',442,addonfolder+artfolder+'foldericon.png',False)
 			match=re.findall("<div class='infRss'.*?>.*?<a href='(.+?)'.*?>(.+?)</a></div>", tab1inf_html.group(1))
 			if match:
 				for link, name in match:
-					addDir(name,'1',208,'',playlist_id='http://rr.sapo.pt/'+link)
+					addDir(name,'1',208,addonfolder+artfolder+'foldericon.png',playlist_id='http://rr.sapo.pt/'+link)
 		tab2bb_html=re.search("<div id='tab2BB' class='tab-content-rss'>(.+?)<div id='tab3Prog' class='tab-content-rss'>", codigo_fonte, re.DOTALL)
 		if tab2bb_html:
-			addDir('[COLOR blue][B]Bola Branca[/B][/COLOR]','',442,'',False)
+			addDir('[COLOR blue][B]Bola Branca[/B][/COLOR]','',442,addonfolder+artfolder+'foldericon.png',False)
 			match=re.findall("<div class='infRss'.*?>.*?<a href='(.+?)'.*?>(.+?)</a></div>", tab2bb_html.group(1))
 			if match:
 				for link, name in match:
-					addDir(name,'1',208,'',playlist_id='http://rr.sapo.pt/'+link)
+					addDir(name,'1',208,addonfolder+artfolder+'foldericon.png',playlist_id='http://rr.sapo.pt/'+link)
 		tab3prog_html=re.search("<div id='tab3Prog' class='tab-content-rss'>(.+?)<div id='tab4EN' class='tab-content-rss'>", codigo_fonte, re.DOTALL)
 		if tab3prog_html:
-			addDir('[COLOR blue][B]Programação[/B][/COLOR]','',442,'',False)
+			addDir('[COLOR blue][B]Programação[/B][/COLOR]','',442,addonfolder+artfolder+'foldericon.png',False)
 			match=re.findall("<div class='infRss'.*?>.*?<a href='(.+?)'.*?>(.+?)</a></div>", tab3prog_html.group(1))
 			if match:
 				for link, name in match:
-					addDir(name,'1',208,'',playlist_id='http://rr.sapo.pt/'+link)
+					addDir(name,'1',208,addonfolder+artfolder+'foldericon.png',playlist_id='http://rr.sapo.pt/'+link)
 		tab4en_html=re.search("<div id='tab4EN' class='tab-content-rss'>(.+?)<br class=\"clearfloat\"/>", codigo_fonte, re.DOTALL)
 		if tab4en_html:
-			addDir('[COLOR blue][B]Euranet[/B][/COLOR]','',442,'',False)
+			addDir('[COLOR blue][B]Euranet[/B][/COLOR]','',442,addonfolder+artfolder+'foldericon.png',False)
 			match=re.findall("<div class='infRss'.*?>.*?<a href='(.+?)'.*?>(.+?)</a></div>", tab4en_html.group(1))
 			if match:
 				for link, name in match:
-					addDir(name,'1',208,'',playlist_id='http://rr.sapo.pt/'+link)
+					addDir(name,'1',208,addonfolder+artfolder+'foldericon.png',playlist_id='http://rr.sapo.pt/'+link)
 
 def rtp_podcasts_canais():
 	try:
@@ -639,7 +648,7 @@ def listar_rtp_podcasts(url):
 	if codigo_fonte:
 		match=re.findall('<li><b>(.+?)</b><a title=".*?" href="(.+?)".*?><span class="img_play_nr func_5">&nbsp;</span>Podcast</a>.*?</li>', codigo_fonte)
 		for name, link in match:
-			addDir(name.decode('latin-1').encode("utf-8"),'1',208,'',playlist_id='http://www.rtp.pt'+link)
+			addDir(name.decode('latin-1').encode("utf-8"),'1',208,addonfolder+artfolder+'foldericon.png',playlist_id='http://www.rtp.pt'+link)
 
 ###################################################################################
 #URL RESOLVERS E FUNÇÃO PLAY
@@ -919,5 +928,11 @@ elif mode==441: listar_tsf_podcasts()
 elif mode==442: listar_rr_podcasts()
 elif mode==443: rtp_podcasts_canais()
 elif mode==444: listar_rtp_podcasts(url)
+elif mode==445: curtadoc.listar_categorias()
+elif mode==446: curtadoc.listar_episodios(url)
+elif mode==447: curtadoc.procurar_fontes(url,name,iconimage)
+elif mode==448: podflix.listar_categorias()
+elif mode==449: podflix.listar_episodios(url)
+elif mode==450: podflix.procurar_fontes(url,name,iconimage)
        
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
