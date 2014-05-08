@@ -30,7 +30,7 @@ def listar_episodios(url):
     except:
 		codigo_fonte = ''
     if codigo_fonte:
-		match = re.findall('<div id="post.*?".*?>.*?<img.*?src="(.+?)".*?></a>.*?<h2 class="posttitle"><a href="(.+?)" rel="bookmark">\n(.+?)</a></h2>.*?</div><!-- post -->', codigo_fonte, re.DOTALL)
+		match = re.findall('<div id="post.*?".*?>.*?<img.*?src="(.+?)".*?></a>.*?<h2 class="posttitle"><a href="(.+?)" rel="bookmark">\n(.*?)</a></h2>.*?</div><!-- post -->', codigo_fonte, re.DOTALL)
 		for iconimage, url, name in match:
 			try:
 				name = name.decode('utf-8').encode('utf-8')
