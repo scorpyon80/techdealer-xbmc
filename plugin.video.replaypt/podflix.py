@@ -11,68 +11,63 @@ selfAddon = xbmcaddon.Addon(id=addon_id)
 addonfolder = selfAddon.getAddonInfo('path')
 artfolder = '/resources/img/'
 
-assistirnovelas_url = 'http://www.assistirnovelas.tv/'
+podflix_url = 'http://podflix.com.br/'
 ##################################################
 
-def CATEGORIES_assistirnovelas():
-	listar_categorias(assistirnovelas_url)
-
-def listar_categorias(url):
-	try: codigo_fonte = abrir_url(url)
-	except: codigo_fonte = ''
+def listar_categorias():
+	try:
+		codigo_fonte = abrir_url(podflix_url+'beta/?podcastsList=all')
+	except:
+		codigo_fonte = ''
 	if codigo_fonte:
-		match = re.compile('<li class=".+?"><a href="(.+?)".*?>(.+?)</a>\n</li>').findall(codigo_fonte)
-		for url,name in match:
-			addDir(name,url,416,addonfolder+artfolder+'assistirnovelas.png')
+		match = re.findall('<div id="post.*?" class="postlist">.*?<a href="(.+?)">.*?<img.*?src="(.+?)".*?></a>.*?<h1 class="posttitle">(.+?)</h1>.*?</div><!-- post -->', codigo_fonte, re.DOTALL)
+		for url, iconimage, name in match:
+			addDir(name,url,449,iconimage)
 		
 def listar_episodios(url):
-    try: codigo_fonte = abrir_url(url)
-    except: codigo_fonte = ''
+    try:
+		codigo_fonte = abrir_url(url)
+    except:
+		codigo_fonte = ''
     if codigo_fonte:
-		match = re.findall("<div class=\"post-content\">.*?<h2><a href='(.+?)'.*?>(.+?)</a></h2>.+?<div class=\"post-thumb-container clearfix\">.+?<img.+?src=\"(.+?)\".*?>.+?</div>", codigo_fonte, re.DOTALL)
-		for url, name, iconimage in match:
+		match = re.findall('<div id="post.*?".*?>.*?<img.*?src="(.+?)".*?></a>.*?<h2 class="posttitle"><a href="(.+?)" rel="bookmark">\n(.+?)</a></h2>.*?</div><!-- post -->', codigo_fonte, re.DOTALL)
+		for iconimage, url, name in match:
 			try:
-				addDir(name,url,417,iconimage,False)
-			except: pass
-		try:	
-			html_pagination = re.search("<div class='pagination clearfix'>(.+?)</div>", codigo_fonte)
-			if html_pagination != None:
-				next_page = re.search("<span class='current'>.+?</span><a href='(.+?)' class='inactive'.+?>.+?</a>", html_pagination.group(1))
-				if next_page != None:
-					addDir('[B]Próxima >>[/B]',next_page.group(1),416,addonfolder+artfolder+'assistirnovelas.png')
-		except:
-			pass
+				name = name.decode('utf-8').encode('utf-8')
+			except:
+				try:
+					name = name.decode("latin-1").encode("utf-8")
+				except:
+					continue
+			addDir(name,url,450,iconimage,False)	
+		next_page = re.search('<div class="nav-previous"><a href="(.+?)" ><span class="meta-nav">&larr;</span> Older posts</a></div>', codigo_fonte)
+		if next_page != None:
+				addDir('[B]<< Anterior[/B]',next_page.group(1),449,addonfolder+artfolder+'podflix.png')
 
 def procurar_fontes(url,name,iconimage):
 	progress = xbmcgui.DialogProgress()
-	progress.create('Replay PT', 'Procurando fontes...')
+	progress.create('Replay PT', 'Resolvendo o podcast...')
 	progress.update(0)
-	playlist = xbmc.PlayList(1)
-	playlist.clear()
 	try:
 		codigo_fonte = abrir_url(url)
 	except:
 		codigo_fonte = ''
-	if codigo_fonte:
-		#player proprietário do site
-		html5_player = re.search("<script type=\"text/javascript\">.+?<!\[CDATA\[.+?data='(.+?)'; novela='(.+?)'; partes='(.+?)'; width='(.+?)'; height='(.+?)';.*?// ]]&gt;</script><script type=\"text/javascript\" src=\"http://www.novelasgravadas.com/asassistirnovelaa.js\"></script>", codigo_fonte, re.DOTALL)
-		if html5_player != None:
-			codigo_fonte_2 = abrir_url('http://novelasgravadas.com/asplayernovelas.php?data='+html5_player.group(1)+'&novela='+html5_player.group(2)+'&partes='+html5_player.group(3)+'&width='+html5_player.group(4)+'&height='+html5_player.group(5))
-			mp4_match = re.compile("file: '(.+?)',").findall(codigo_fonte_2)
-			for url in mp4_match:
-				playlist.add(url,xbmcgui.ListItem(name, thumbnailImage=iconimage))
-		if progress.iscanceled():
+	if progress.iscanceled():
 			sys.exit(0)
-		progress.update(100)
-		progress.close()
-		if len(playlist) == 0:
-			dialog = xbmcgui.Dialog()
-			ok = dialog.ok('Replay PT', 'Nenhuma fonte suportada encontrada...')
-		else:
+	progress.update(100)
+	progress.close()
+	if codigo_fonte:
+		podcast_file = re.search("<a href='([^'\"<>]+?)' TARGET='_blank'><img src='/lib/images/post/zip.jpg' alt='Zip' height='50px' width='50px'></a>", codigo_fonte)
+		if podcast_file:
+			listitem = xbmcgui.ListItem(label=name, iconImage=str(iconimage), thumbnailImage=str(iconimage), path=url)
+			listitem.setProperty('IsPlayable', 'true')
 			try:
-				xbmc.Player().play(playlist)		
+				xbmc.Player().play(item=podcast_file.group(1), listitem=listitem)
 			except:
 				pass
+	else:
+		dialog = xbmcgui.Dialog()
+		ok = dialog.ok('Replay PT', 'Podcast não encontrado...')
 						
 ############################################################################################################################
 

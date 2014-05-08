@@ -48,7 +48,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.replaypt" name="Replay PT" version="0.1.8" provider-name="techdealer">
+<addon id="plugin.video.replaypt" name="Replay PT" version="0.1.9" provider-name="techdealer">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
