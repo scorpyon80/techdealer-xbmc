@@ -54,13 +54,31 @@ def procurar_fontes(url,name,iconimage):
 	except:
 		codigo_fonte = ''
 	if codigo_fonte:
-		#player proprietário do site
+		print 'iniciando procura de fontes...'
+		#players proprietários do site
+		html5_new_player = re.search("<script>.+?<!\[CDATA\[.*?novela='(.+?)'; data='(.+?)'; categoria='(.+?)';.*? partes='(.+?)';.*?// ]]&gt;</script><script src=\"http://nossocanal.net/player/novela.js\"></script>", codigo_fonte, re.DOTALL)
+		if html5_new_player != None:
+			print 'Assistirnovelas: html5 new player detectado...'
+			codigo_fonte_2 = abrir_url('http://nossocanal.net/player/player.php?novela='+html5_new_player.group(1)+'&data='+html5_new_player.group(2)+'&categoria='+html5_new_player.group(3)+'&partes='+html5_new_player.group(4))
+			mp4_match = re.compile("file: '(.+?)',").findall(codigo_fonte_2)
+			for url in mp4_match:
+				playlist.add(url,xbmcgui.ListItem(name, thumbnailImage=iconimage))
 		html5_player = re.search("<script type=\"text/javascript\">.+?<!\[CDATA\[.+?data='(.+?)'; novela='(.+?)'; partes='(.+?)'; width='(.+?)'; height='(.+?)';.*?// ]]&gt;</script><script type=\"text/javascript\" src=\"http://www.novelasgravadas.com/asassistirnovelaa.js\"></script>", codigo_fonte, re.DOTALL)
 		if html5_player != None:
+			print 'Assistirnovelas: html5 old player detectado...'
 			codigo_fonte_2 = abrir_url('http://novelasgravadas.com/asplayernovelas.php?data='+html5_player.group(1)+'&novela='+html5_player.group(2)+'&partes='+html5_player.group(3)+'&width='+html5_player.group(4)+'&height='+html5_player.group(5))
 			mp4_match = re.compile("file: '(.+?)',").findall(codigo_fonte_2)
 			for url in mp4_match:
 				playlist.add(url,xbmcgui.ListItem(name, thumbnailImage=iconimage))
+		partes_player = re.search("\<script type\=\"text/javascript\"\>// \<\!\[CDATA\[(.+?)// \]\]&gt;\</script\>\<script type\=\"text/javascript\" src\=\"http\://www\.novelasgravadas\.com/partesvideo\.js\"\>\</script\>", codigo_fonte, re.DOTALL)
+		if partes_player != None:
+			print 'Assistirnovelas: partes player detectado...'
+			total_partes = re.search("partes\='([\d]+?)';", partes_player.group(1))
+			if total_partes:
+				for x in range(0, int(total_partes.group(1))):
+					vid = re.search('vid'+str(x+1)+"='(.+?)';", partes_player.group(1))
+					if vid:
+						playlist.add('plugin://plugin.video.dailymotion_com/?mode=playVideo&url='+vid.group(1),xbmcgui.ListItem(name, thumbnailImage=iconimage))
 		if progress.iscanceled():
 			sys.exit(0)
 		progress.update(100)

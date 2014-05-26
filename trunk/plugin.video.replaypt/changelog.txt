@@ -1,3 +1,11 @@
+Versão 0.2.0 - (26/05/2014)
+* Site novelasgravadas.com (Brasil):
+  -Corrigidas as expressões regulares para funcionarem no novo template
+  -Adicionado suporte ao novo player html5
+* Site assistirnovelas.tv (Brasil):
+  -Adicionado suporte ao novo player html5
+* Corrigida Playlist "Série 37" (tvi) de mary1sofiachannel
+
 Versão 0.1.9 - (08/05/2014)
 * Função de listar podcasts: adicionada ocultação da timezone também em datas EDT
 * Removida dependência desnecessária: urlresolver
