@@ -15,35 +15,24 @@ artfolder = '/resources/img/'
 novelasgravadas_url = 'http://www.novelasgravadas.com/'
 ##################################################
 
-def CATEGORIES_novelasgravadas():
-	addDir('[B]Mudar para categorias[/B]',novelasgravadas_url,414,addonfolder+artfolder+'novelasgravadas.png',True)
+def listar_categorias():
 	try:
-		codigo_fonte = abrir_url(novelasgravadas_url)
+		codigo_fonte = abrir_url(novelasgravadas_url+'/home/')
 	except:
 		codigo_fonte = ''
 	if codigo_fonte:
-		match = re.findall("<div class=\"block-image\">.*?<img src=\"(.+?)\".*?></a><span class=\"video-icon\"></span></div>.*?<h2><a href='(.+?)'.*?>(.+?)</a></h2>", codigo_fonte, re.DOTALL)
-		if match:
-			if len(match)>=8:
-				for x in range(0, 8):
-					addDir(match[x][2],match[x][1],413,match[x][0],False)
-
-def alterar_vista(url):
-	addDir('[B]Mudar para últimas[/B]',url,411,addonfolder+artfolder+'novelasgravadas.png');
-	try:
-		codigo_fonte = abrir_url(url)
-	except:
-		codigo_fonte = ''
-	if codigo_fonte:
-		match = re.findall('<li>.*?<a href="#">(.+?)</a>.*?<ul>(.+?)</ul>.*?</li>', codigo_fonte, re.DOTALL)
+		match = re.findall('<li id="menu-item.*?".*?>.*?<span class="link_text">(.+?)</span>.*?<ul class="mega_dropdown">(.+?)</ul>.*?<!-- /.mega_dropdown -->.*?</li>', codigo_fonte, re.DOTALL)
 		if match:
 			for categoria, html_source in match:
-				match_2 = re.compile('<li.*?><a href="(.+?)">(.+?)</a></li>').findall(html_source)
+				categoria = categoria.strip()
+				if categoria == 'Início':
+					categoria = 'Novelas'
+				match_2 = re.findall('<li.*?>.*?<a href="(.+?)".*?>.*?<span class="link_text">(.+?)</span>.*?</span>.*?</a>.*?</li>', html_source, re.DOTALL)
 				if match_2:
 					addDir('[COLOR blue][B]'+categoria+'[/B][/COLOR]','',411,addonfolder+artfolder+'novelasgravadas.png',False)
 					for url, name in match_2:
-						if url != 'http://www.novelasgravadas.com/categoria/assistir-series-online-gratis/the-walking-dead/':
-							addDir(name,url,412,addonfolder+artfolder+'novelasgravadas.png')
+						name = name.strip()
+						addDir(name,url,412,addonfolder+artfolder+'novelasgravadas.png')
 		
 def listar_episodios(url):
     try:
@@ -51,17 +40,16 @@ def listar_episodios(url):
     except:
 		codigo_fonte = ''
     if codigo_fonte:
-		match = re.findall("<div id=\"post-.+?\".+?>.+?<div class=\"block-image\"><a href='(.+?)' title='(.+?)'><img src=\"(.+?)\".+?></a>.+?</div>", codigo_fonte, re.DOTALL)
-		for url, name, iconimage in match:
+		match = re.findall('<div class="post">.*?<div class="post_img_box">.*?<img.*?src="(.+?)".*?>.*?</div>.*?<h1><a.*?href="(.+?)".*?>(.+?)</a></h1>', codigo_fonte, re.DOTALL)
+		for iconimage, url, name in match:
 			try:
 				addDir(name,url,413,iconimage,False)
-			except: pass
+			except:
+				pass
 		try:	
-			html_pagination = re.search("<div class='pagination'>(.+?)</div>", codigo_fonte)
+			html_pagination = re.search("<a href='([^\"']+?)'>&rsaquo;</a>", codigo_fonte)
 			if html_pagination != None:
-				next_page = re.search("<span class='current'>.+?</span><a href='(.+?)' class='inactive'.+?>.+?</a>", html_pagination.group(1))
-				if next_page != None:
-					addDir('[B]Próxima >>[/B]',next_page.group(1),412,addonfolder+artfolder+'novelasgravadas.png')
+				addDir('[B]Próxima >>[/B]',html_pagination.group(1),412,addonfolder+artfolder+'novelasgravadas.png')
 		except:
 			pass
 
@@ -78,9 +66,16 @@ def procurar_fontes(url,name,iconimage):
 	if codigo_fonte:
 		print 'iniciando procura de fontes...'
 		#players proprietários do site
+		html5_new_player = re.search("<script>.+?<!\[CDATA\[.*?novela='(.+?)'; data='(.+?)'; categoria='(.+?)';.*? partes='(.+?)';.*?// ]]&gt;</script><script src=\"http://nossocanal.net/player/novela.js\"></script>", codigo_fonte, re.DOTALL)
+		if html5_new_player != None:
+			print 'Novelasgravadas: html5 new player detectado...'
+			codigo_fonte_2 = abrir_url('http://nossocanal.net/player/player.php?novela='+html5_new_player.group(1)+'&data='+html5_new_player.group(2)+'&categoria='+html5_new_player.group(3)+'&partes='+html5_new_player.group(4))
+			mp4_match = re.compile("file: '(.+?)',").findall(codigo_fonte_2)
+			for url in mp4_match:
+				playlist.add(url,xbmcgui.ListItem(name, thumbnailImage=iconimage))
 		html5_player = re.search("<script type=\"text/javascript\">.+?<!\[CDATA\[.+?data='(.+?)'; novela='(.+?)'; partes='(.+?)'; width='(.+?)'; height='(.+?)';.*?// ]]&gt;</script><script type=\"text/javascript\" src=\"http://www.novelasgravadas.com/assistirnovela.js\"></script>", codigo_fonte, re.DOTALL)
 		if html5_player != None:
-			print 'Novelasgravadas: html5 player detectado...'
+			print 'Novelasgravadas: html5 old player detectado...'
 			codigo_fonte_2 = abrir_url('http://novelasgravadas.com/playernovelas.php?data='+html5_player.group(1)+'&novela='+html5_player.group(2)+'&partes='+html5_player.group(3)+'&width='+html5_player.group(4)+'&height='+html5_player.group(5))
 			mp4_match = re.compile("file: '(.+?)',").findall(codigo_fonte_2)
 			for url in mp4_match:

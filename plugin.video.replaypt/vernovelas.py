@@ -15,12 +15,11 @@ artfolder = '/resources/img/'
 vernovelas_url = 'http://vernovelas.com.br/'
 ##################################################
 
-def CATEGORIES_vernovelas():
-	listar_categorias(vernovelas_url)
-
-def listar_categorias(url):
-	try: codigo_fonte = abrir_url(url)
-	except: codigo_fonte = ''
+def listar_categorias():
+	try:
+		codigo_fonte = abrir_url(vernovelas_url)
+	except:
+		codigo_fonte = ''
 	if codigo_fonte:
 		match = re.findall('<li id=".+?" class=".+?"><a.+?href="(.+?)">(.+?)</a></li>', codigo_fonte)
 		for url,name in match:
@@ -61,23 +60,7 @@ def procurar_fontes(url,name,iconimage):
 	except:
 		codigo_fonte = ''
 	if codigo_fonte:
-		print 'iniciando procura de fontes...'
-		#players proprietários do site
-		html5_player = re.search("<script type=\"text/javascript\">.+?<!\[CDATA\[.+?data='(.+?)'; novela='(.+?)'; partes='(.+?)'; width='(.+?)'; height='(.+?)';.*?// ]]&gt;</script><script type=\"text/javascript\" src=\"http://www.novelasgravadas.com/assistirnovela.js\"></script>", codigo_fonte, re.DOTALL)
-		if html5_player != None:
-			print 'Novelasgravadas: html5 player detectado...'
-			codigo_fonte_2 = abrir_url('http://novelasgravadas.com/playernovelas.php?data='+html5_player.group(1)+'&novela='+html5_player.group(2)+'&partes='+html5_player.group(3)+'&width='+html5_player.group(4)+'&height='+html5_player.group(5))
-			mp4_match = re.compile("file: '(.+?)',").findall(codigo_fonte_2)
-			for url in mp4_match:
-				playlist.add(url,xbmcgui.ListItem(name, thumbnailImage=iconimage))
-		old_player = re.search("<script type=\"text/javascript\">.+?<!\[CDATA\[.+?data='(.+?)'; novela='(.+?)'; width='(.+?)'; height='(.+?)';.*?// ]]&gt;</script><script type=\"text/javascript\" src=\"http://www.novelasgravadas.com/novelas.js\"></script>", codigo_fonte, re.DOTALL)
-		if old_player != None:
-			print 'Novelasgravadas: old player detectado...'
-			codigo_fonte_2 = abrir_url('http://novelasgravadas.com/xml/'+old_player.group(2)+'/'+old_player.group(1)+'.xml')
-			file_match = re.compile("<location>(.+?)</location>").findall(codigo_fonte_2)
-			for url in file_match:
-				playlist.add(url,xbmcgui.ListItem(name, thumbnailImage=iconimage))
-		#outros tipos de players externos
+		#players externos em iframe
 		html_source_trunk = re.findall('<iframe(.*?)</iframe>', codigo_fonte, re.DOTALL)
 		for trunk in html_source_trunk:
 			try:
