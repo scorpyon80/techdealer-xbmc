@@ -23,29 +23,30 @@ def listar_categorias():
 	if codigo_fonte:
 		match = re.findall('<li id=".+?" class=".+?"><a.+?href="(.+?)">(.+?)</a></li>', codigo_fonte)
 		for url,name in match:
-			if name=='Inicio' or name=='FUTEBOL AO VIVO' or name=='Contato':
+			if name=='INICIO' or name=='FUTEBOL AO VIVO' or name=='CONTATO':
 				continue
-			elif url=='http://vernovelas.com.br/category/resumo-de-em-familia' or url=='http://vernovelas.com.br/category/resumo-de-malhacao-2' or url=='http://vernovelas.com.br/category/resumo-de-joia-rara' or url=='http://vernovelas.com.br/category/resumo-de-o-cravo-e-a-rosa' or url=='http://vernovelas.com.br/category/resumo-de-chiquititas-2' or url=='http://vernovelas.com.br/category/resumo-de-rebelde' or url=='http://vernovelas.com.br/category/resumo-de-pecado-mortal':
+			elif url=='http://www.vernovelas.com.br/category/resumo-de-em-familia' or url=='http://www.vernovelas.com.br/category/resumo-de-malhacao-2' or url=='http://www.vernovelas.com.br/category/resumo-de-joia-rara' or url=='http://www.vernovelas.com.br/category/resumo-de-o-cravo-e-a-rosa' or url=='http://www.vernovelas.com.br/category/resumo-de-chiquititas-2' or url=='http://www.vernovelas.com.br/category/resumo-de-rebelde' or url=='http://www.vernovelas.com.br/category/resumo-de-pecado-mortal':
 				continue
-			elif url=='http://vernovelas.com.br/category/tv-globo' or url=='http://vernovelas.com.br/category/band' or url=='http://vernovelas.com.br/category/sbt' or url=='http://vernovelas.com.br/category/record' or url=='http://vernovelas.com.br/category/canal-viva' or url=='http://vernovelas.com.br/category/sportv' or url=='http://vernovelas.com.br/category/combate-2' or url=='http://vernovelas.com.br/category/espn' or url=='http://vernovelas.com.br/category/fox' or url=='http://vernovelas.com.br/category/hbo':
+			elif url=='http://www.vernovelas.com.br/category/tv-globo' or url=='http://www.vernovelas.com.br/category/band' or url=='http://www.vernovelas.com.br/category/sbt' or url=='http://www.vernovelas.com.br/category/record' or url=='http://www.vernovelas.com.br/category/canal-viva' or url=='http://www.vernovelas.com.br/category/sportv' or url=='http://www.vernovelas.com.br/category/combate-2' or url=='http://www.vernovelas.com.br/category/espn' or url=='http://www.vernovelas.com.br/category/fox' or url=='http://www.vernovelas.com.br/category/hbo':
 				continue
 			addDir(name,url,419,addonfolder+artfolder+'vernovelas.png')
 		
 def listar_episodios(url):
-    try: codigo_fonte = abrir_url(url)
-    except: codigo_fonte = ''
+    try:
+		codigo_fonte = abrir_url(url)
+    except:
+		codigo_fonte = ''
     if codigo_fonte:
-		match = re.findall("<div id=\"post-.+?\".+?>.+?<div class=\"block-image\"><a href='(.+?)' title='(.+?)'><img src=\"(.+?)\".+?></a>.+?</div>", codigo_fonte, re.DOTALL)
-		for url, name, iconimage in match:
+		match = re.findall('<div class="span6">.*?<img.*?src="(.+?)".*?>.*?<div class="item-details">.*?<h3 itemprop="name" class="entry-title"><a itemprop="url" href="(.+?)" rel="bookmark".*?>(.+?)</a></h3>.*?</div>', codigo_fonte, re.DOTALL)
+		for iconimage, url, name in match:
 			try:
 				addDir(name,url,420,iconimage,False)
-			except: pass
+			except:
+				pass
 		try:	
-			html_pagination = re.search("<div class='pagination'>(.+?)</div>", codigo_fonte)
-			if html_pagination != None:
-				next_page = re.search("<span class='current'>.+?</span><a href='(.+?)' class='inactive'.+?>.+?</a>", html_pagination.group(1))
-				if next_page != None:
-					addDir('[B]Próxima >>[/B]',next_page.group(1),419,addonfolder+artfolder+'vernovelas.png')
+			next_page = re.search('<a href="([^"]+?)">Próximo <img.*?></a>', codigo_fonte)
+			if next_page:
+				addDir('[B]Próxima >>[/B]',next_page.group(1),419,addonfolder+artfolder+'vernovelas.png')
 		except:
 			pass
 

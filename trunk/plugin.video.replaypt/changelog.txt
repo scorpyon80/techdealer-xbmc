@@ -1,3 +1,10 @@
+Versão 0.2.1 - (13/06/2014)
+* Novelas tvi: adicionado "Mulheres" e "Feitiço de Amor"
+* Site vernovelas.com.br (Brasil): corrigido
+* Site documentariosvarios.wordpress.com (Brasil): adicionado no menu o número de items que cada categoria tem
+* Site podflix.com.br (Brasil): corrigido
+* Outras correcções
+
 Versão 0.2.0 - (26/05/2014)
 * Site novelasgravadas.com (Brasil):
   -Corrigidas as expressões regulares para funcionarem no novo template
