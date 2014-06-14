@@ -143,6 +143,7 @@ def NOV_TVI():
 	addDir('Equador (Fonte: FNunes94 channel)','1',200,addonfolder+artfolder+'foldericon.png',playlist_id = 'PLRrd7-_JAWxgb0z8S_VOl_6XGuPZcVzkI')
 	addDir('Espírito Indomável (Fonte: espirit0indomavel channel)','1',201,addonfolder+artfolder+'foldericon.png',search_query = 'allintitle:"Espírito Indomável"',channel_id = 'espirit0indomavel')
 	addDir('Espírito Indomável (Fonte: SerenaSM channel)','1',201,addonfolder+artfolder+'foldericon.png',search_query = 'allintitle:"Espírito Indomável"',channel_id = 'SerenaSM')
+	addDir('Feitiço de Amor (Fonte: Novelas Portugal channel)','1',201,addonfolder+artfolder+'foldericon.png',search_query = 'allintitle:"Feitiço de Amor"',channel_id = 'UCL3dTyP-6b5jR5fBxTT8IJw')
 	addDir('I Love It (Fonte: il0veit.com)','1',201,addonfolder+artfolder+'foldericon.png',search_query = 'allintitle:"I Love It"',channel_id = 'iloveittvi')
 	addDir('I Love It (Fonte: FNunes94 channel)','1',200,addonfolder+artfolder+'foldericon.png',playlist_id = 'PLRrd7-_JAWxjD56OXvWnzi1IeNj85llyl')
 	addDir('I Love It (Fonte: TVStory Portugal)','',402,addonfolder+artfolder+'foldericon.png',search_query = 'allintitle:"I Love It"',channel_id = 'I%20LOVE%20IT')
@@ -159,6 +160,8 @@ def NOV_TVI():
 	addDir('Morangos com Açucar 7 (Fonte: thedanielasofia12)','1',201,addonfolder+artfolder+'foldericon.png',search_query = 'allintitle:"Morangos Com Açucar 7"',channel_id = 'thedanielasofia12')
 	addDir('Morangos com Açucar 8 (Fonte: MissSaruska)','1',201,addonfolder+artfolder+'foldericon.png',search_query = 'allintitle:"Morangos com Açúcar 8"',channel_id = 'MissSaruska')
 	addDir('Morangos com Açucar 9 (Fonte: VerMorangosOnline)','1',201,addonfolder+artfolder+'foldericon.png',search_query = 'allintitle:"Morangos com Açúcar 9"',channel_id = 'vermorangosonline')
+	addDir('Mulheres (Fonte: TVStory Portugal)','MULHERES',401,addonfolder+artfolder+'foldericon.png')
+	addDir('Mulheres (Fonte: Love channel)','1',201,addonfolder+artfolder+'foldericon.png',search_query = 'allintitle:"Mulheres"',channel_id = 'UCZiiYd0nBgGjazT_TLwMmFw')
 	addDir('Mundo ao Contrário (Fonte: tugarec)','1',204,addonfolder+artfolder+'foldericon.png',playlist_id = 'x2l6lj')
 	addDir('O Beijo do Escorpião (Fonte: TVStory Portugal)','O%20BEIJO%20DO%20ESCORPI%C3%83O',401,addonfolder+artfolder+'foldericon.png')
 	addDir('O Teu Olhar (Fonte: mary1sofia channel)','1',201,addonfolder+artfolder+'foldericon.png',search_query = 'allintitle:"O Teu Olhar"',channel_id = 'mary1sofia')
@@ -477,10 +480,9 @@ def listar_videos_tvstory_new(url,mode):
 	for page_link, name in match:
 		codigo_fonte_2 = abrir_url(page_link)
 		match_2=re.compile('<iframe.+?src=".+?www.youtube.com/embed/([^?"]+).+?>').findall(codigo_fonte_2)
-		count = len(match_2)
 		video_parte = 1
 		for youtube_id in match_2:
-			if count>1:
+			if len(match_2)>1:
 				addDir(name + ' - parte ' + str(video_parte) + ' (Server: YOUTUBE)','plugin://plugin.video.youtube/?action=play_video&videoid='+youtube_id.decode('utf-8'),99,'http://i1.ytimg.com/vi/'+youtube_id.decode('utf-8')+'/0.jpg',False)
 				video_parte += 1
 			else:
@@ -494,7 +496,7 @@ def listar_videos_tvstory_new(url,mode):
 		
 def listar_videos_tvstory_old(url,mode,search_query,channel_id):
 	#lista as novelas da tvstory divididas entre o antigo canal e o novo site
-	tv_story_suburl = urllib.quote(channel_id)
+	tv_story_suburl = channel_id
 	ytchannel_id = 'UC3gXb0jTm9cgRb6vseICJNQ' #old tv story channel
 	videos_per_page = 15 #configuração apenas se aplica ao youtube
 	checker = 1
@@ -754,7 +756,7 @@ def addDir(name,url,mode,iconimage,pasta=True,**kwargs):
 	extra_args = ''
 	for key, value in kwargs.items():
 		exec('%s = %s' % (key, repr(value)))
-		extra_args = extra_args + '&' + str(key) + '=' + str(value)
+		extra_args = extra_args + '&' + str(key) + '=' + urllib.quote_plus(str(value))
 	u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&iconimage="+urllib.quote_plus(iconimage)+extra_args
 	ok=True
 	liz=xbmcgui.ListItem(name, iconImage="DefaultFolder.png", thumbnailImage=iconimage)
@@ -932,6 +934,5 @@ elif mode==446: curtadoc.listar_episodios(url)
 elif mode==447: curtadoc.procurar_fontes(url,name,iconimage)
 elif mode==448: podflix.listar_categorias()
 elif mode==449: podflix.listar_episodios(url)
-elif mode==450: podflix.procurar_fontes(url,name,iconimage)
        
 xbmcplugin.endOfDirectory(int(sys.argv[1]))

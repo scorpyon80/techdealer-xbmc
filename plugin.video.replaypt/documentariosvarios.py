@@ -21,15 +21,17 @@ def CATEGORIES_documentariosvarios():
 
 def alterar_vista(url):
 	addDir('[B]Mudar para últimas[/B]',url,421,addonfolder+artfolder+'documentariosvarios.png');
-	try: codigo_fonte = abrir_url(url)
-	except: codigo_fonte = ''
+	try:
+		codigo_fonte = abrir_url(url)
+	except:
+		codigo_fonte = ''
 	if codigo_fonte:
 		html_source_trunk = re.search('<aside id="categories-2" class="widget widget_categories">(.+?)</aside>', codigo_fonte, re.DOTALL)
 		if html_source_trunk:
-			match = re.findall('<li.*?><a href="(.+?)".*?>(.+?)</a>.*?</li>', html_source_trunk.group(1), re.DOTALL)
-			for url, name in match:
+			match = re.findall('<li.*?><a href="(.+?)".*?>(.+?)</a>(.+?)(?:</li>|<ul class=\'children\'>)', html_source_trunk.group(1), re.DOTALL)
+			for url, name, quantidade in match:
 				try:
-					addDir(name,url,422,addonfolder+artfolder+'documentariosvarios.png')
+					addDir(name+' - '+quantidade.strip(),url,422,addonfolder+artfolder+'documentariosvarios.png')
 				except: pass			
 
 def listar_episodios(url):

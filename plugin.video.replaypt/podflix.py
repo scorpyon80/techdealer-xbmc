@@ -4,6 +4,7 @@
 
 ##############BIBLIOTECAS A IMPORTAR E DEFINICOES####################
 import urllib,urllib2,re,xbmcplugin,xbmcgui,sys,xbmc,xbmcaddon,xbmcvfs,socket,HTMLParser
+import json
 h = HTMLParser.HTMLParser()
 
 addon_id = 'plugin.video.replaypt'
@@ -15,59 +16,37 @@ podflix_url = 'http://podflix.com.br/'
 ##################################################
 
 def listar_categorias():
-	try:
-		codigo_fonte = abrir_url(podflix_url+'beta/?podcastsList=all')
-	except:
-		codigo_fonte = ''
-	if codigo_fonte:
-		match = re.findall('<div id="post.*?" class="postlist">.*?<a href="(.+?)">.*?<img.*?src="(.+?)".*?></a>.*?<h1 class="posttitle">(.+?)</h1>.*?</div><!-- post -->', codigo_fonte, re.DOTALL)
-		for url, iconimage, name in match:
-			addDir(name,url,449,iconimage)
+	addDir('Lançamentos','?catGroup=1',449,addonfolder+artfolder+'podflix.png')
+	addDir('Novos Projetos','?catGroup=2',449,addonfolder+artfolder+'podflix.png')
+	addDir('Culturas e Tradições Religiosas','?catGroup=12',449,addonfolder+artfolder+'podflix.png')
+	addDir('Entretenimento','?catGroup=10',449,addonfolder+artfolder+'podflix.png')
+	addDir('Entrevistas','?catGroup=8',449,addonfolder+artfolder+'podflix.png')
+	addDir('Esporte','?catGroup=11',449,addonfolder+artfolder+'podflix.png')
+	addDir('Filmes','?catGroup=3',449,addonfolder+artfolder+'podflix.png')
+	addDir('Jogos','?catGroup=4',449,addonfolder+artfolder+'podflix.png')
+	addDir('História Geral','?catGroup=13',449,addonfolder+artfolder+'podflix.png')
+	addDir('Livros e HQs','?catGroup=5',449,addonfolder+artfolder+'podflix.png')
+	addDir('Música','?catGroup=9',449,addonfolder+artfolder+'podflix.png')
+	addDir('Tecnologia','?catGroup=6',449,addonfolder+artfolder+'podflix.png')
+	addDir('Variedades','?catGroup=7',449,addonfolder+artfolder+'podflix.png')
 		
 def listar_episodios(url):
     try:
-		codigo_fonte = abrir_url(url)
+		codigo_fonte = abrir_url(podflix_url+'lib/player/functions/json.php'+url)
     except:
 		codigo_fonte = ''
     if codigo_fonte:
-		match = re.findall('<div id="post.*?".*?>.*?<img.*?src="(.+?)".*?></a>.*?<h2 class="posttitle"><a href="(.+?)" rel="bookmark">\n(.*?)</a></h2>.*?</div><!-- post -->', codigo_fonte, re.DOTALL)
-		for iconimage, url, name in match:
-			try:
-				name = name.decode('utf-8').encode('utf-8')
-			except:
-				try:
-					name = name.decode("latin-1").encode("utf-8")
-				except:
-					continue
-			addDir(name,url,450,iconimage,False)	
-		next_page = re.search('<div class="nav-previous"><a href="(.+?)" ><span class="meta-nav">&larr;</span> Older posts</a></div>', codigo_fonte)
-		if next_page != None:
-				addDir('[B]<< Anterior[/B]',next_page.group(1),449,addonfolder+artfolder+'podflix.png')
-
-def procurar_fontes(url,name,iconimage):
-	progress = xbmcgui.DialogProgress()
-	progress.create('Replay PT', 'Resolvendo o podcast...')
-	progress.update(0)
-	try:
-		codigo_fonte = abrir_url(url)
-	except:
-		codigo_fonte = ''
-	if progress.iscanceled():
-			sys.exit(0)
-	progress.update(100)
-	progress.close()
-	if codigo_fonte:
-		podcast_file = re.search("<a href='([^'\"<>]+?)' TARGET='_blank'><img src='/lib/images/post/zip.jpg' alt='Zip' height='50px' width='50px'></a>", codigo_fonte)
-		if podcast_file:
-			listitem = xbmcgui.ListItem(label=name, iconImage=str(iconimage), thumbnailImage=str(iconimage), path=url)
-			listitem.setProperty('IsPlayable', 'true')
-			try:
-				xbmc.Player().play(item=podcast_file.group(1), listitem=listitem)
-			except:
-				pass
-	else:
-		dialog = xbmcgui.Dialog()
-		ok = dialog.ok('Replay PT', 'Podcast não encontrado...')
+		decoded_data = json.loads(codigo_fonte)
+		try:
+			if len(decoded_data) > 0:
+				for x in range(0, len(decoded_data)):
+					podcast = decoded_data[x]['podcast'].encode("utf8")
+					title = decoded_data[x]['title'].encode("utf8")
+					audiofile = decoded_data[x]['audiofile'].encode("utf8")
+					iconimage = decoded_data[x]['thumbnail'].encode("utf8")
+					addDir('[B]'+podcast+'[/B] - '+title,audiofile,99,iconimage,False)
+		except:
+			pass
 						
 ############################################################################################################################
 
