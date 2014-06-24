@@ -9,8 +9,8 @@
    </category>
    <category label="Definicões diversas">
 	  <setting label="Items por página" type="slider" id="items_per_page" default="20" range="10,50" option="int"/>
-	  <setting label="Resolver músicas" type="enum" id="track_resolver_method" values="Auto-resolver ao reproduzir track|Auto-resolver ao carregar lista (lento)|Resolver manualmente"/>
-	  <setting label="Método pesquisa playlists" type="enum" id="playlist_search_method" values="Keyword|Tags"/>
+	  <setting label="Resolver músicas" type="enum" id="track_resolver_method" values="Auto-resolver ao reproduzir track|Auto-resolver ao carregar lista (lento)|Resolver manualmente" default="0"/>
+	  <setting label="Método pesquisa playlists" type="enum" id="playlist_search_method" values="Keyword|Tags" default="0"/>
 	  <setting label="Dica: poderá pesquisar por multiplas tags separando-as por vírgula." visible="eq(-1,1)" type="lsep" />
    </category>
    <category label="Downloads">
