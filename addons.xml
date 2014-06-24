@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
+<addon id="plugin.audio.musicbox" name="Music Box" version="0.0.1" provider-name="techdealer">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+	<import addon="script.module.simple.downloader" version="1.9.4"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>audio</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <language>en</language>
+    <platform>all</platform>
+    <summary lang="en">Music Box</summary>
+    <description lang="en">Music box is a new way to listen and discover music thought XBMC.</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon id="plugin.video.footazo" name="Footazo" version="0.0.2" provider-name="techdealer">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>

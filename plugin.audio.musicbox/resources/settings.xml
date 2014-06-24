@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+   <category label="Conta">
+      <setting id="vk_token" type="text" label="Vk.com Token [COLOR red][B](Obrigatório)[/B][/COLOR]" default="9baa01b7b841f1a05a0fef48d26e9b74ead40f78757fb369f1417c22653fdcb376efa1f81ffe56cadae22"/>
+	  <setting label="[B]Info:[/B] Atualmente o addon vem com um token pre-definido, mas isso poderá" type="lsep"/>
+	  <setting label="mudar num futuro update, se se verificar que ele expira por exemplo..." type="lsep"/>
+	  <setting label=" " type="lsep"/>
+	  <setting label="[COLOR red]Não altere este valor sem saber o que está a fazer![/COLOR]" type="lsep"/>
+   </category>
+   <category label="Definicões diversas">
+	  <setting label="Items por página" type="slider" id="items_per_page" default="20" range="10,50" option="int"/>
+	  <setting label="Resolver músicas" type="enum" id="track_resolver_method" values="Auto-resolver ao reproduzir track|Auto-resolver ao carregar lista (lento)|Resolver manualmente"/>
+	  <setting label="Método pesquisa playlists" type="enum" id="playlist_search_method" values="Keyword|Tags"/>
+	  <setting label="Dica: poderá pesquisar por multiplas tags separando-as por vírgula." visible="eq(-1,1)" type="lsep" />
+   </category>
+   <category label="Downloads">
+	  <setting label="Pasta de downloads" type="folder" id="downloads_folder" source="auto" option="writeable"/>
+   </category>
+</settings>
