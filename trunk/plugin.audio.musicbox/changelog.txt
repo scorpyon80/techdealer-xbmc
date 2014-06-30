@@ -1,5 +1,5 @@
 Version 0.0.2 - (30/06/2014)
-* Addon translated to english (thanks to mafarricos for help with translation)
+* Addon translated to english (thanks to Mafarricos and Wanilton for help with translation)
 * 8tracks playlists: added official resolver method
 * 8tracks: makes the search by tags easier...To search by tags, use a search query like the following example:
 tags:summer,pool,party
@@ -9,3 +9,4 @@ tags:summer,pool,party
 
 Version 0.0.1 - (24/06/2014)
 * First addon release
+
