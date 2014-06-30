@@ -1,3 +1,11 @@
+Version 0.0.2 - (30/06/2014)
+* Addon translated to english (thanks to mafarricos for help with translation)
+* 8tracks playlists: added official resolver method
+* 8tracks: makes the search by tags easier...To search by tags, use a search query like the following example:
+tags:summer,pool,party
+* Added Digster Support
+* Music info (name, artist, album) is now passed to player
+* Added artist fannart for sound/album listing (thanks to enen92)
+
 Version 0.0.1 - (24/06/2014)
 * First addon release
-
