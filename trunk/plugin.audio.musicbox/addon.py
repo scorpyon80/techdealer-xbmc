@@ -70,7 +70,7 @@ def Recomendations(url):
 #DIGSTER	
 
 def Digster_menu():
-	addDir('[COLOR blue][B]'+translate(30113)+':[/B][/COLOR] '+['Adria','Australia','Austria','Belgium','Denmark','Estonia','Finland','France','Germany','Latvia','Lithuania','Mexico','Netherlands','New Zeland','Norway','Poland','Portugal','Romania','Spain','Sweden','Switzerland','United Kingdom','USA'][int(selfAddon.getSetting('digster_country'))],'',2,'',False)
+	addDir('[COLOR blue][B]'+translate(30110)+':[/B][/COLOR] '+['Adria','Australia','Austria','Belgium','Denmark','Estonia','Finland','France','Germany','Latvia','Lithuania','Mexico','Netherlands','New Zeland','Norway','Poland','Portugal','Romania','Spain','Sweden','Switzerland','United Kingdom','USA'][int(selfAddon.getSetting('digster_country'))],'',2,'',False)
 	addDir(translate(30450),'',3,'')
 	addDir(translate(30451),'genre',4,'')
 	addDir(translate(30452),'mood',4,'')
