@@ -4,12 +4,12 @@
 	<string id="30000">Conta</string>
 	<string id="30001">Vk.com Token [COLOR red][B](Obrigatório)[/B][/COLOR]</string>
 	<string id="30002">[B]Info:[/B] Atualmente o addon vem com um token pre-definido, mas isso poderá</string>
-	<string id="30003">mudar num futuro update, se se verificar que ele expira por exemplo...</string>
+	<string id="30003">mudar num futuro update, se ocorrer dele expirar, por exemplo...</string>
 	<string id="30004">[COLOR red]Não altere este valor sem saber o que está a fazer![/COLOR]</string>
 	
 	<!-- Settings - General Settings -->
 	<string id="30100">Geral</string>
-	<string id="30101">Items por página</string>
+	<string id="30101">Itens por página</string>
 	<string id="30102">Resolver músicas</string>
 	<string id="30103">Auto-resolver ao reproduzir track</string>
 	<string id="30104">Auto-resolver ao carregar lista (lento)</string>
@@ -38,9 +38,9 @@
 	<string id="30409">[B]Próxima página >>[/B]</string>
 	
 	<!-- Digster -->
-	<string id="30450">Secções</string>
-	<string id="30451">Género</string>
-	<string id="30452">Mood</string>
+	<string id="30450">Seções</string>
+	<string id="30451">Gênero</string>
+	<string id="30452">Clima</string>
 	<string id="30453">Ideal para</string>
 	
 	<!-- Charts -->
@@ -65,18 +65,18 @@
 	<!-- Search and list content -->
 	<string id="30600">Pesquisar por artista, nome de música, playlist...</string>
 	<string id="30601">Ver [B]</string>
-	<string id="30602">[/B] tracks encontrados</string>
+	<string id="30602">[/B] faixas encontradas</string>
 	<string id="30603">Ver [B]</string>
-	<string id="30604">[/B] albums encontrados</string>
+	<string id="30604">[/B] álbuns encontrados</string>
 	<string id="30605">Lista dos [B]</string>
-	<string id="30606">[/B] tracks mais populares</string>
+	<string id="30606">[/B] faixas mais populares</string>
 	<string id="30607">Ver [B]</string>
 	<string id="30608">[/B] setlists encontradas</string>
 	<string id="30609">Ver [B]</string>
 	<string id="30610">[/B] playlists encontradas</string>
 	<string id="30611">Pesquisar por...</string>
 	<string id="30612">Aguarde enquanto carregamos a playlist...</string>
-	<string id="30613">Carregando track </string>
+	<string id="30613">Carregando faixa </string>
 	<string id="30614"> de </string>
 	<string id="30615">Aguarde </string>
 	<string id="30616"> segundos...</string>
@@ -87,7 +87,7 @@
 	<!-- Downloads, resolvers, player and ContextMenuItems -->
 	<string id="30700">Para usar a função de downloads, você deverá primeiro definir a pasta para o efeito nas definições do addon...</string>
 	<string id="30701">Resolvendo...</string>
-	<string id="30702">Track não encontrado...</string>
+	<string id="30702">Faixa não encontrada...</string>
 	<string id="30703">Pesquisa manual...</string>
 	<string id="30704">Baixar</string>
 </strings>
