@@ -9,11 +9,11 @@
    </category>
    <category label="30100">
 	  <setting label="30101" type="slider" id="items_per_page" default="20" range="10,50" option="int"/>
-	  <setting label="30102" type="enum" id="track_resolver_method" lvalues="30103|30104|30105" default="0"/>
-	  <setting label="30106" type="enum" id="playlist_resolver_method" lvalues="30107|30108" default="1"/>
-	  <setting label="30109" type="lsep" />
-	  <setting label="30110" type="enum" id="digster_country" values="Adria|Australia|Austria|Belgium|Denmark|Estonia|Finland|France|Germany|Latvia|Lithuania|Mexico|Netherlands|New Zeland|Norway|Poland|Portugal|Romania|Spain|Sweden|Switzerland|United Kingdom|USA" default="21"/>
-	  <setting label="30111" type="bool" id="get_artist_fanart" default="false"/>
+	  <setting label="30102" type="enum" id="track_resolver_method" lvalues="30103|30104" default="0"/>
+	  <setting label="30105" type="enum" id="playlist_resolver_method" lvalues="30106|30107" default="1"/>
+	  <setting label="30108" type="lsep" />
+	  <setting label="30109" type="enum" id="digster_country" values="Adria|Australia|Austria|Belgium|Denmark|Estonia|Finland|France|Germany|Latvia|Lithuania|Mexico|Netherlands|New Zeland|Norway|Poland|Portugal|Romania|Spain|Sweden|Switzerland|United Kingdom|USA" default="21"/>
+	  <setting label="30110" type="bool" id="get_artist_fanart" default="false"/>
    </category>
    <category label="30200">
 	  <setting label="30201" type="folder" id="downloads_folder" source="auto" option="writeable"/>

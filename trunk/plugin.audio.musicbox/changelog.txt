@@ -1,3 +1,9 @@
+Version 0.0.3 - (03/07/2014)
+* Added support to change the music according to the files listed in the directory...
+* Added Official Charts UK to charts
+* Improved List_album_tracks function: now if last.fm send no results, the addon use 7digital as second source
+* Added search for similar tracks in context menu
+
 Version 0.0.2 - (30/06/2014)
 * Addon translated to english (thanks to Mafarricos and Wanilton for help with translation)
 * 8tracks playlists: added official resolver method

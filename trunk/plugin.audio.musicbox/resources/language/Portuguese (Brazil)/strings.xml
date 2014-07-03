@@ -12,14 +12,13 @@
 	<string id="30101">Itens por página</string>
 	<string id="30102">Resolver músicas</string>
 	<string id="30103">Auto-resolver ao reproduzir track</string>
-	<string id="30104">Auto-resolver ao carregar lista (lento)</string>
-	<string id="30105">Resolver manualmente</string>  
-	<string id="30106">Método resolução playlists</string>
-	<string id="30107">Oficial</string>
-	<string id="30108">Omgcatz</string>
-	<string id="30109">Método Omgcatz é mais rápido e pode cachear playlists, Oficial é mais estável.</string>
-	<string id="30110">Digster País</string>
-	<string id="30111">Transferir fanart do artista</string>
+	<string id="30104">Resolver manualmente</string>  
+	<string id="30105">Método resolução playlists</string>
+	<string id="30106">Oficial</string>
+	<string id="30107">Omgcatz</string>
+	<string id="30108">Método Omgcatz é mais rápido e pode cachear playlists, Oficial é mais estável.</string>
+	<string id="30109">Digster País</string>
+	<string id="30110">Transferir fanart do artista</string>
 
 	<!-- Settings - Download -->
 	<string id="30200">Downloads</string>
@@ -46,21 +45,24 @@
 	<!-- Charts -->
 	<string id="30500">[B]Itunes[/B] - Top músicas por país</string>
 	<string id="30501">[B]Itunes[/B] - Top albums por país</string>
-	<string id="30502">[B]Billboard[/B] - The Hot 100</string>
-	<string id="30503">[B]Billboard[/B] - 200</string>
-	<string id="30504">[B]Billboard[/B] - Heatseekers Songs</string>
-	<string id="30505">[B]Billboard[/B] - Heatseekers Albums</string>
-	<string id="30506">[B]Billboard[/B] - Hot Pop Songs</string>
-	<string id="30507">[B]Billboard[/B] - Hot Country Songs</string>
-	<string id="30508">[B]Billboard[/B] - Top Country Albums</string>
-	<string id="30509">[B]Billboard[/B] - Hot Rock Songs</string>
-	<string id="30510">[B]Billboard[/B] - Top Rock Albums</string>
-	<string id="30511">[B]Billboard[/B] - Hot R&amp;B/Hip-Hop Songs</string>
-	<string id="30512">[B]Billboard[/B] - Top R&amp;B/Hip-Hop Albums</string>
-	<string id="30513">[B]Billboard[/B] - Hot Dance/Electronic Songs</string>
-	<string id="30514">[B]Billboard[/B] - Dance/Electronic Albums</string>
-	<string id="30515">[B]Billboard[/B] - Hot Latin Songs</string>
-	<string id="30516">[B]Billboard[/B] - Top Latin Albums</string>
+	<string id="30502">[B]Official Charts UK[/B] - Vários charts</string>
+	<string id="30503">[B]Billboard[/B] - The Hot 100</string>
+	<string id="30504">[B]Billboard[/B] - 200</string>
+	<string id="30505">[B]Billboard[/B] - Heatseekers Songs</string>
+	<string id="30506">[B]Billboard[/B] - Heatseekers Albums</string>
+	<string id="30507">[B]Billboard[/B] - Hot Pop Songs</string>
+	<string id="30508">[B]Billboard[/B] - Hot Country Songs</string>
+	<string id="30509">[B]Billboard[/B] - Top Country Albums</string>
+	<string id="30510">[B]Billboard[/B] - Hot Rock Songs</string>
+	<string id="30511">[B]Billboard[/B] - Top Rock Albums</string>
+	<string id="30512">[B]Billboard[/B] - Hot R&amp;B/Hip-Hop Songs</string>
+	<string id="30513">[B]Billboard[/B] - Top R&amp;B/Hip-Hop Albums</string>
+	<string id="30514">[B]Billboard[/B] - Hot Dance/Electronic Songs</string>
+	<string id="30515">[B]Billboard[/B] - Dance/Electronic Albums</string>
+	<string id="30516">[B]Billboard[/B] - Hot Latin Songs</string>
+	<string id="30517">[B]Billboard[/B] - Top Latin Albums</string>
+	<string id="30518">Official Charts UK - escolha:</string>
+	<string id="30519">Trocar chart...</string>
 
 	<!-- Search and list content -->
 	<string id="30600">Pesquisar por artista, nome de música, playlist...</string>
@@ -89,5 +91,6 @@
 	<string id="30701">Resolvendo...</string>
 	<string id="30702">Faixa não encontrada...</string>
 	<string id="30703">Pesquisa manual...</string>
-	<string id="30704">Baixar</string>
+	<string id="30704">Tracks similares...</string>
+	<string id="30705">Baixar</string>
 </strings>
