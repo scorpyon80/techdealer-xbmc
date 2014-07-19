@@ -19,6 +19,7 @@
 	<string id="30108">Método Omgcatz é mais rápido e pode cachear playlists, Oficial é mais estável.</string>
 	<string id="30109">Digster País</string>
 	<string id="30110">Transferir fanart do artista</string>
+	<string id="30111">Ocultar Atflick soundtrack</string>
 
 	<!-- Settings - Download -->
 	<string id="30200">Downloads</string>
@@ -30,39 +31,62 @@
 	<string id="30402">Info: O seu token vk.com é inválido.</string>
 	<string id="30403">Recomendações</string>
 	<string id="30404">Digster</string>
-	<string id="30405">Charts</string>
-	<string id="30406">Procurar...</string>
-	<string id="30407">Minhas músicas</string>
-	<string id="30408">Definições</string>
-	<string id="30409">[B]Próxima página >>[/B]</string>
+	<string id="30405">Atflick Soundtrack</string>
+	<string id="30406">8Tracks Playlists</string>
+	<string id="30407">Charts</string>
+	<string id="30408">Procurar...</string>
+	<string id="30409">Minhas músicas</string>
+	<string id="30410">Favoritos</string>
+	<string id="30411">Definições</string>
+	<string id="30412">[B]Próxima página >>[/B]</string>
 	
 	<!-- Digster -->
-	<string id="30450">Secções</string>
-	<string id="30451">Género</string>
-	<string id="30452">Mood</string>
-	<string id="30453">Ideal para</string>
+	<string id="30425">Secções</string>
+	<string id="30426">Género</string>
+	<string id="30427">Mood</string>
+	<string id="30428">Ideal para</string>
+	
+	<!-- Atflick soundtrack -->
+	<string id="30450">Destaques</string>
+	<string id="30451">Adicionado recentemente</string>
+	<string id="30452">Toplist</string>
+	<string id="30453">Comédia</string>
+	<string id="30454">Romântico</string>
+	<string id="30455">Acção</string>
+	<string id="30456">Família</string>
+	<string id="30457">Ficção científica</string>
+	<string id="30458">Escolha um soundtrack:</string>
+	
+	<!-- 8tracks playlists -->
+	<string id="30475">Popular</string>
+	<string id="30476">Escolhas da Staff</string>
+	<string id="30477">Destaques</string>
+	<string id="30478">Tendência</string>
+	<string id="30479">Mais recente</string>
 	
 	<!-- Charts -->
 	<string id="30500">[B]Itunes[/B] - Top músicas por país</string>
 	<string id="30501">[B]Itunes[/B] - Top albums por país</string>
-	<string id="30502">[B]Official Charts UK[/B] - Vários charts</string>
-	<string id="30503">[B]Billboard[/B] - The Hot 100</string>
-	<string id="30504">[B]Billboard[/B] - 200</string>
-	<string id="30505">[B]Billboard[/B] - Heatseekers Songs</string>
-	<string id="30506">[B]Billboard[/B] - Heatseekers Albums</string>
-	<string id="30507">[B]Billboard[/B] - Hot Pop Songs</string>
-	<string id="30508">[B]Billboard[/B] - Hot Country Songs</string>
-	<string id="30509">[B]Billboard[/B] - Top Country Albums</string>
-	<string id="30510">[B]Billboard[/B] - Hot Rock Songs</string>
-	<string id="30511">[B]Billboard[/B] - Top Rock Albums</string>
-	<string id="30512">[B]Billboard[/B] - Hot R&amp;B/Hip-Hop Songs</string>
-	<string id="30513">[B]Billboard[/B] - Top R&amp;B/Hip-Hop Albums</string>
-	<string id="30514">[B]Billboard[/B] - Hot Dance/Electronic Songs</string>
-	<string id="30515">[B]Billboard[/B] - Dance/Electronic Albums</string>
-	<string id="30516">[B]Billboard[/B] - Hot Latin Songs</string>
-	<string id="30517">[B]Billboard[/B] - Top Latin Albums</string>
-	<string id="30518">Official Charts UK - escolha:</string>
-	<string id="30519">Trocar chart...</string>
+	<string id="30502">[B]Beatport[/B] - Top 100</string>
+	<string id="30503">[B]Beatport[/B] - Top 100 Classic</string>
+	<string id="30504">[B]Official Charts UK[/B] - Vários charts</string>
+	<string id="30505">[B]Billboard[/B] - The Hot 100</string>
+	<string id="30506">[B]Billboard[/B] - 200</string>
+	<string id="30507">[B]Billboard[/B] - Heatseekers Songs</string>
+	<string id="30508">[B]Billboard[/B] - Heatseekers Albums</string>
+	<string id="30509">[B]Billboard[/B] - Hot Pop Songs</string>
+	<string id="30510">[B]Billboard[/B] - Hot Country Songs</string>
+	<string id="30511">[B]Billboard[/B] - Top Country Albums</string>
+	<string id="30512">[B]Billboard[/B] - Hot Rock Songs</string>
+	<string id="30513">[B]Billboard[/B] - Top Rock Albums</string>
+	<string id="30514">[B]Billboard[/B] - Hot R&amp;B/Hip-Hop Songs</string>
+	<string id="30515">[B]Billboard[/B] - Top R&amp;B/Hip-Hop Albums</string>
+	<string id="30516">[B]Billboard[/B] - Hot Dance/Electronic Songs</string>
+	<string id="30517">[B]Billboard[/B] - Dance/Electronic Albums</string>
+	<string id="30518">[B]Billboard[/B] - Hot Latin Songs</string>
+	<string id="30519">[B]Billboard[/B] - Top Latin Albums</string>
+	<string id="30520">Official Charts UK - escolha:</string>
+	<string id="30521">Trocar chart...</string>
 
 	<!-- Search and list content -->
 	<string id="30600">Pesquisar por artista, nome de música, playlist...</string>
@@ -76,21 +100,38 @@
 	<string id="30608">[/B] setlists encontradas</string>
 	<string id="30609">Ver [B]</string>
 	<string id="30610">[/B] playlists encontradas</string>
-	<string id="30611">Pesquisar por...</string>
-	<string id="30612">Aguarde enquanto carregamos a playlist...</string>
-	<string id="30613">Carregando track </string>
-	<string id="30614"> de </string>
-	<string id="30615">Aguarde </string>
-	<string id="30616"> segundos...</string>
-	<string id="30617">Ocorreu um erro...</string>
-	<string id="30618">Aguarde enquanto carregamos e cacheamos a playlist...</string>
-	<string id="30619">A playlist foi modificada, isto foi tudo o que encontramos.</string>
+	<string id="30611">Ver [B]</string>
+	<string id="30612">[/B] soundtracks encontrados</string>
+	<string id="30613">Pesquisar por...</string>
+	<string id="30614">Aguarde enquanto carregamos a playlist...</string>
+	<string id="30615">Carregando track </string>
+	<string id="30616"> de </string>
+	<string id="30617">Aguarde </string>
+	<string id="30618"> segundos...</string>
+	<string id="30619">Ocorreu um erro...</string>
+	<string id="30620">Aguarde enquanto carregamos e cacheamos a playlist...</string>
+	<string id="30621">A playlist foi modificada, isto foi tudo o que encontramos.</string>
+	<string id="30622">Videoclip não encontrado</string>
+	
+	<!-- Favorites -->
+	<string id="30700">Adicionado aos favoritos</string>
+	<string id="30701">Músicas</string>
+	<string id="30702">Albums</string>
+	<string id="30703">Setlists</string>
+	<string id="30704">Playlists</string>
+	<string id="30705">Soundtracks</string>
 
 	<!-- Downloads, resolvers, player and ContextMenuItems -->
-	<string id="30700">Para usar a função de downloads, você deverá primeiro definir a pasta para o efeito nas definições do addon...</string>
-	<string id="30701">Resolvendo...</string>
-	<string id="30702">Track não encontrado...</string>
-	<string id="30703">Pesquisa manual...</string>
-	<string id="30704">Tracks similares...</string>
-	<string id="30705">Download</string>
+	<string id="30800">Para usar a função de downloads, você deverá primeiro definir a pasta para o efeito nas definições do addon...</string>
+	<string id="30801">Resolvendo...</string>
+	<string id="30802">Track não encontrado...</string>
+	<string id="30803">Pesquisa manual...</string>
+	<string id="30804">Tracks similares...</string>
+	<string id="30805">Download</string>
+	<string id="30806">Procurar Videoclip</string>
+	<string id="30807">Adicionar aos favoritos</string>
+	<string id="30808">Mover para cima</string>
+	<string id="30809">Mover para baixo</string>
+	<string id="30810">Remover favorito</string>
+	<string id="30811">Soundtracks similares...</string>
 </strings>

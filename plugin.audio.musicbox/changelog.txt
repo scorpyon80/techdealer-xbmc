@@ -1,3 +1,10 @@
+Version 0.0.4 - (19/07/2014)
+* Added favorites function
+* Added "Beatport Top 100" and "Beatport Top 100 Classic" to charts
+* Fixed a bug in iTunes charts
+* Added Atflick Soundtrack integration and 8tracks Main Menu icon/entry
+* Added videoclip support (thanks to enen92)
+
 Version 0.0.3 - (03/07/2014)
 * Added support to change the music according to the files listed in the directory...
 * Added Official Charts UK to charts
