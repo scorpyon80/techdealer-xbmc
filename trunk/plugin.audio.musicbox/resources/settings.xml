@@ -14,6 +14,7 @@
 	  <setting label="30108" type="lsep" />
 	  <setting label="30109" type="enum" id="digster_country" values="Adria|Australia|Austria|Belgium|Denmark|Estonia|Finland|France|Germany|Latvia|Lithuania|Mexico|Netherlands|New Zeland|Norway|Poland|Portugal|Romania|Spain|Sweden|Switzerland|United Kingdom|USA" default="21"/>
 	  <setting label="30110" type="bool" id="get_artist_fanart" default="false"/>
+	  <setting label="30111" type="bool" id="hide_soundtrack" default="false"/>
    </category>
    <category label="30200">
 	  <setting label="30201" type="folder" id="downloads_folder" source="auto" option="writeable"/>
