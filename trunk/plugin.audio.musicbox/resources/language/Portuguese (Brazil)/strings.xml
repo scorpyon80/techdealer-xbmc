@@ -1,25 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <strings>
 	<!-- Settings - Account -->
-	<string id="30000">Conta</string>
-	<string id="30001">Vk.com Token [COLOR red][B](Obrigatório)[/B][/COLOR]</string>
-	<string id="30002">[B]Info:[/B] Atualmente o addon vem com um token pre-definido, mas isso poderá</string>
-	<string id="30003">mudar num futuro update, se ocorrer dele expirar, por exemplo...</string>
-	<string id="30004">[COLOR red]Não altere este valor sem saber o que está a fazer![/COLOR]</string>
+	<string id="30000">Contas</string>
+	<string id="30001">Vk.com</string>
+	<string id="30002">Email/telefone</string>
+	<string id="30003">Palavra-passe</string>
+	<string id="30004">[B]Info:[/B] Serão dadas permissões à app 'Liquid Bear' no vk.com, para usar a API.</string>
+	<string id="30005">Token</string>
+	<string id="30006">Last.fm</string>
+	<string id="30007">Email</string>
+	<string id="30008">Palavra-passe</string>
+	<string id="30009">Token</string>
+	<string id="30010">8tracks</string>
+	<string id="30011">Email</string>
+	<string id="30012">Palavra-passe</string>
+	<string id="30013">Token</string>
 	
 	<!-- Settings - General Settings -->
 	<string id="30100">Geral</string>
-	<string id="30101">Itens por página</string>
-	<string id="30102">Resolver músicas</string>
-	<string id="30103">Auto-resolver ao reproduzir track</string>
-	<string id="30104">Resolver manualmente</string>  
-	<string id="30105">Método resolução playlists</string>
-	<string id="30106">Oficial</string>
-	<string id="30107">Omgcatz</string>
-	<string id="30108">Método Omgcatz é mais rápido e pode cachear playlists, Oficial é mais estável.</string>
-	<string id="30109">Digster País</string>
-	<string id="30110">Transferir fanart do artista</string>
-	<string id="30111">Ocultar Atflick soundtrack</string>
+	<string id="30101">Fonte de Média</string>
+	<string id="30102">[B]Info:[/B] Utilizando o VK.com como fonte de musica o addon será semelhante à</string>
+	<string id="30103">app Liquidbear. Utilizando o youtube, o addon será semelhante ao Atraci.</string>
+	<string id="30104">Itens por página</string>
+	<string id="30105">Resolver músicas</string>
+	<string id="30106">Auto-resolver ao reproduzir track</string>
+	<string id="30107">Resolver manualmente</string>  
+	<string id="30108">Método resolução playlists</string>
+	<string id="30109">Oficial</string>
+	<string id="30110">Omgcatz</string>
+	<string id="30111">Método Omgcatz é mais rápido e pode cachear playlists, Oficial é mais estável.</string>
+	<string id="30112">Digster País</string>
+	<string id="30113">Transferir fanart do artista</string>
+	<string id="30114">Ocultar Atflick soundtrack</string>
 
 	<!-- Settings - Download -->
 	<string id="30200">Downloads</string>
@@ -27,18 +39,17 @@
 
 	<!-- Main Menu & Recomendations -->
 	<string id="30400">Music Box</string>
-	<string id="30401">Info: Você necessita de um token vk.com para usar o addon.</string>
-	<string id="30402">Info: O seu token vk.com é inválido.</string>
-	<string id="30403">Recomendações</string>
-	<string id="30404">Digster</string>
-	<string id="30405">Atflick Soundtrack</string>
-	<string id="30406">8Tracks Playlists</string>
-	<string id="30407">Charts</string>
-	<string id="30408">Procurar...</string>
-	<string id="30409">Minhas músicas</string>
-	<string id="30410">Favoritos</string>
-	<string id="30411">Definições</string>
-	<string id="30412">[B]Próxima página >>[/B]</string>
+	<string id="30401">Recomendações</string>
+	<string id="30402">Digster</string>
+	<string id="30403">Atflick Soundtrack</string>
+	<string id="30404">8Tracks Playlists</string>
+	<string id="30405">Charts</string>
+	<string id="30406">Procurar...</string>
+	<string id="30407">Minhas músicas</string>
+	<string id="30408">Favoritos</string>
+	<string id="30409">Espaço do utilizador</string>
+	<string id="30410">Definições</string>
+	<string id="30411">[B]Próxima página >>[/B]</string>
 	
 	<!-- Digster -->
 	<string id="30425">Seções</string>
@@ -87,6 +98,7 @@
 	<string id="30519">[B]Billboard[/B] - Top Latin Albums</string>
 	<string id="30520">Official Charts UK - escolha:</string>
 	<string id="30521">Trocar chart...</string>
+	<string id="30522">[B]Vk.com[/B] - Música popular</string>
 
 	<!-- Search and list content -->
 	<string id="30600">Pesquisar por artista, nome de música, playlist...</string>
@@ -134,4 +146,24 @@
 	<string id="30809">Mover para baixo</string>
 	<string id="30810">Remover favorito</string>
 	<string id="30811">Soundtracks similares...</string>
+	
+	<!-- User space & accounts -->
+	<string id="30850">[B]Meu vk.com[/B] - minha música</string>
+	<string id="30851">[B]Meu vk.com[/B] - recomendações</string>
+	<string id="30852">[B]Meu last.fm[/B] - músicas preferidas</string>
+	<string id="30853">[B]Meu last.fm[/B] - músicas ouvidas recentemente</string>
+	<string id="30854">[B]Meu last.fm[/B] - músicas mais ouvidas</string>
+	<string id="30855">[B]Meu last.fm[/B] - albums mais ouvidos</string>
+	<string id="30856">[B]Meu 8tracks[/B] - playlists favoritas</string>
+	<string id="30857">[B]Meu 8tracks[/B] - histórico</string>
+	<string id="30858">[B]Meu 8tracks[/B] - minhas playlists</string>
+	<string id="30859">[B]Meu 8tracks[/B] - recomendado para mim</string>
+	<string id="30860">Vk.com</string>
+	<string id="30861">Last.fm</string>
+	<string id="30862">8tracks</string>
+	<string id="30863">[COLOR red]Credênciais erradas![/COLOR]</string>
+	<string id="30864">Sessão iniciada com sucesso.</string>
+	<string id="30865">Erro: vk.com email/telefone ou password está vazio</string>
+	<string id="30866">Erro: vk.com email/telefone ou password incorrecto</string>
+	<string id="30867">Erro: Vk.com retornou o seguinte erro: </string>
 </strings>

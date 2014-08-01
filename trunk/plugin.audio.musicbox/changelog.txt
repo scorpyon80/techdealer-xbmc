@@ -1,3 +1,9 @@
+Version 0.0.5 - (01/08/2014)
+* Added atraci like behavior (thanks to enen92)
+* Improved search by albums
+* Added "User space": now is possible to log in on vk.com, last.fm and 8tracks and use user info
+* Added Vk.com Popular Music to charts
+
 Version 0.0.4 - (19/07/2014)
 * Added favorites function
 * Added "Beatport Top 100" and "Beatport Top 100 Classic" to charts
