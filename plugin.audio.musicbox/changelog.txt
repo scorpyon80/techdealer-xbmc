@@ -1,3 +1,8 @@
+Version 0.0.6 - (14/08/2014)
+* Fixed "Search Music Video" context menu option
+* Added Last.fm User Playlists to the 'User Space'
+* Added 'Song Info' option to the context menu
+
 Version 0.0.5 - (01/08/2014)
 * Added atraci like behavior (thanks to enen92)
 * Improved search by albums

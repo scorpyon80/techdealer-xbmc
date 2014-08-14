@@ -32,6 +32,7 @@
 	<string id="30112">Digster Country</string>
 	<string id="30113">Download artist fanart</string>
 	<string id="30114">Hide Atflick soundtrack</string>
+	<string id="30115">Display 'Song info' option in Context Menu</string>
 
 	<!-- Settings - Download -->
 	<string id="30200">Downloads</string>
@@ -146,6 +147,11 @@
 	<string id="30809">Move down</string>
 	<string id="30810">Remove favorite</string>
 	<string id="30811">Similar soundtracks...</string>
+	<string id="30812">Song info</string>
+	<string id="30813">Info not available for this track</string>
+	<string id="30814">Duration: </string>
+	<string id="30815">Size: </string>
+	<string id="30816">Estimated bitrate: </string>
 	
 	<!-- User space & accounts -->
 	<string id="30850">[B]My vk.com[/B] - my music</string>
@@ -154,16 +160,17 @@
 	<string id="30853">[B]My last.fm[/B] - recent listened tracks</string>
 	<string id="30854">[B]My last.fm[/B] - top listened tracks</string>
 	<string id="30855">[B]My last.fm[/B] - top listened albums</string>
-	<string id="30856">[B]My 8tracks[/B] - liked playlists</string>
-	<string id="30857">[B]My 8tracks[/B] - listening history</string>
-	<string id="30858">[B]My 8tracks[/B] - my playlists</string>
-	<string id="30859">[B]My 8tracks[/B] - recommended for me</string>
-	<string id="30860">Vk.com</string>
-	<string id="30861">Last.fm</string>
-	<string id="30862">8tracks</string>
-	<string id="30863">[COLOR red]Wrong credentials![/COLOR]</string>
-	<string id="30864">Logged in successfully.</string>
-	<string id="30865">Error: vk.com email/phone or password empty</string>
-	<string id="30866">Error: wrong vk.com email/phone or password</string>
-	<string id="30867">Error: Vk.com returned the following error: </string>
+	<string id="30856">[B]My last.fm[/B] - my playlists</string>
+	<string id="30857">[B]My 8tracks[/B] - liked playlists</string>
+	<string id="30858">[B]My 8tracks[/B] - listening history</string>
+	<string id="30859">[B]My 8tracks[/B] - my playlists</string>
+	<string id="30860">[B]My 8tracks[/B] - recommended for me</string>
+	<string id="30861">Vk.com</string>
+	<string id="30862">Last.fm</string>
+	<string id="30863">8tracks</string>
+	<string id="30864">[COLOR red]Wrong credentials![/COLOR]</string>
+	<string id="30865">Logged in successfully.</string>
+	<string id="30866">Error: vk.com email/phone or password empty</string>
+	<string id="30867">Error: wrong vk.com email/phone or password</string>
+	<string id="30868">Error: Vk.com returned the following error: </string>
 </strings>

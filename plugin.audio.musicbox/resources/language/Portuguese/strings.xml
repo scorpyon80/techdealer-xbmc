@@ -32,6 +32,7 @@
 	<string id="30112">Digster País</string>
 	<string id="30113">Transferir fanart do artista</string>
 	<string id="30114">Ocultar Atflick soundtrack</string>
+	<string id="30115">Mostrar opção 'Info da música' no Context Menu</string>
 
 	<!-- Settings - Download -->
 	<string id="30200">Downloads</string>
@@ -146,6 +147,11 @@
 	<string id="30809">Mover para baixo</string>
 	<string id="30810">Remover favorito</string>
 	<string id="30811">Soundtracks similares...</string>
+	<string id="30812">Info da música</string>
+	<string id="30813">Info não disponível para esta música</string>
+	<string id="30814">Duração: </string>
+	<string id="30815">Tamanho: </string>
+	<string id="30816">Bitrate estimado: </string>
 	
 	<!-- User space & accounts -->
 	<string id="30850">[B]Meu vk.com[/B] - minha música</string>
@@ -154,16 +160,17 @@
 	<string id="30853">[B]Meu last.fm[/B] - músicas ouvidas recentemente</string>
 	<string id="30854">[B]Meu last.fm[/B] - músicas mais ouvidas</string>
 	<string id="30855">[B]Meu last.fm[/B] - albums mais ouvidos</string>
-	<string id="30856">[B]Meu 8tracks[/B] - playlists favoritas</string>
-	<string id="30857">[B]Meu 8tracks[/B] - histórico</string>
-	<string id="30858">[B]Meu 8tracks[/B] - minhas playlists</string>
-	<string id="30859">[B]Meu 8tracks[/B] - recomendado para mim</string>
-	<string id="30860">Vk.com</string>
-	<string id="30861">Last.fm</string>
-	<string id="30862">8tracks</string>
-	<string id="30863">[COLOR red]Credênciais erradas![/COLOR]</string>
-	<string id="30864">Sessão iniciada com sucesso.</string>
-	<string id="30865">Erro: vk.com email/telefone ou password está vazio</string>
-	<string id="30866">Erro: vk.com email/telefone ou password incorrecto</string>
-	<string id="30867">Erro: Vk.com retornou o seguinte erro: </string>
+	<string id="30856">[B]Meu last.fm[/B] - minhas playlists</string>
+	<string id="30857">[B]Meu 8tracks[/B] - playlists favoritas</string>
+	<string id="30858">[B]Meu 8tracks[/B] - histórico</string>
+	<string id="30859">[B]Meu 8tracks[/B] - minhas playlists</string>
+	<string id="30860">[B]Meu 8tracks[/B] - recomendado para mim</string>
+	<string id="30861">Vk.com</string>
+	<string id="30862">Last.fm</string>
+	<string id="30863">8tracks</string>
+	<string id="30864">[COLOR red]Credênciais erradas![/COLOR]</string>
+	<string id="30865">Sessão iniciada com sucesso.</string>
+	<string id="30866">Erro: vk.com email/telefone ou password está vazio</string>
+	<string id="30867">Erro: vk.com email/telefone ou password incorrecto</string>
+	<string id="30868">Erro: Vk.com retornou o seguinte erro: </string>
 </strings>
