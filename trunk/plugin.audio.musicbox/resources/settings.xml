@@ -26,6 +26,7 @@
 	  <setting label="30112" type="enum" id="digster_country" values="Adria|Australia|Austria|Belgium|Denmark|Estonia|Finland|France|Germany|Latvia|Lithuania|Mexico|Netherlands|New Zeland|Norway|Poland|Portugal|Romania|Spain|Sweden|Switzerland|United Kingdom|USA" default="21"/>
 	  <setting label="30113" type="bool" id="get_artist_fanart" default="false"/>
 	  <setting label="30114" type="bool" id="hide_soundtrack" default="false"/>
+	  <setting label="30115" type="bool" id="display_songinfo_cmenu" default="false"/>
    </category>
    <category label="30200">
 	  <setting label="30201" type="folder" id="downloads_folder" source="auto" option="writeable"/>
