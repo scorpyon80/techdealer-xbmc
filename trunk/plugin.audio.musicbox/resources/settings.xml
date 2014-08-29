@@ -31,4 +31,10 @@
    <category label="30200">
 	  <setting label="30201" type="folder" id="downloads_folder" source="auto" option="writeable"/>
    </category>
+   <category label="30300">
+	  <setting label="30301" type="folder" id="library_folder" source="auto" option="writeable"/>
+	  <setting label="30302" type="lsep"/>
+	  <setting label="30303" type="lsep"/>
+	  <setting label="30304" type="bool" id="save_library_tbn" default="true"/>
+   </category>
 </settings>

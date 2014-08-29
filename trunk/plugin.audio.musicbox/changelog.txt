@@ -1,3 +1,11 @@
+Version 0.0.7 - (30/08/2014)
+* 'My Music': Added support for listing of subfolders and more audio file formats
+* 'My Music': Read the ID3 tags from audio files
+* 'User space': highlights the playing music, in the 'Last.fm - recent listened tracks'
+* Added function to download albums (note that if a track is not found it will be skipped)
+* Added ability to export albums, setlists and soundtracks as m3u
+* Small update in Official UK Charts to improve the search of album tracks for albums by 'Various Artists'
+
 Version 0.0.6 - (14/08/2014)
 * Fixed "Search Music Video" context menu option
 * Added Last.fm User Playlists to the 'User Space'

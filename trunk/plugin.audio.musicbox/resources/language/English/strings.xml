@@ -8,7 +8,7 @@
 	<string id="30004">[B]Info:[/B] Will be given permissions to the app 'Liquid Bear' in vk.com, to use the API.</string>
 	<string id="30005">Token</string>
 	<string id="30006">Last.fm</string>
-	<string id="30007">Email</string>
+	<string id="30007">Email/username</string>
 	<string id="30008">Password</string>
 	<string id="30009">Token</string>
 	<string id="30010">8tracks</string>
@@ -37,6 +37,13 @@
 	<!-- Settings - Download -->
 	<string id="30200">Downloads</string>
 	<string id="30201">Download folder</string>
+	
+	<!-- Settings - Library -->
+	<string id="30300">Library</string>
+	<string id="30301">Library folder</string>
+	<string id="30302">[B]Info:[/B] Here will be saved the items exported as m3u.</string>
+	<string id="30303">[B]Note:[/B] they will not be integrated into the library, but will be available in files.</string>
+	<string id="30304">Save the thumbnail of exported items</string>
 	
 	<!-- Main Menu & Recomendations -->
 	<string id="30400">Music Box</string>
@@ -152,6 +159,14 @@
 	<string id="30814">Duration: </string>
 	<string id="30815">Size: </string>
 	<string id="30816">Estimated bitrate: </string>
+	<string id="30817">Download album</string>
+	<string id="30818">Downloading the album ...</string>
+	<string id="30819">Downloading track </string>
+	<string id="30820"> of </string>
+	<string id="30821">Album not found...</string>
+	<string id="30822">To export items, you should first set the folder for the effect on the addon settings...</string>
+	<string id="30823">Export as .m3u</string>
+	<string id="30824">Successfully exported</string>
 	
 	<!-- User space & accounts -->
 	<string id="30850">[B]My vk.com[/B] - my music</string>
@@ -173,4 +188,5 @@
 	<string id="30866">Error: vk.com email/phone or password empty</string>
 	<string id="30867">Error: wrong vk.com email/phone or password</string>
 	<string id="30868">Error: Vk.com returned the following error: </string>
+	<string id="30869">[B][COLOR red]Now playing:[/COLOR][/B] </string>
 </strings>

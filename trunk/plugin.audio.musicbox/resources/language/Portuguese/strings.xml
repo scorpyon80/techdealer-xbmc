@@ -8,7 +8,7 @@
 	<string id="30004">[B]Info:[/B] Serão dadas permissões à app 'Liquid Bear' no vk.com, para usar a API.</string>
 	<string id="30005">Token</string>
 	<string id="30006">Last.fm</string>
-	<string id="30007">Email</string>
+	<string id="30007">Email/username</string>
 	<string id="30008">Password</string>
 	<string id="30009">Token</string>
 	<string id="30010">8tracks</string>
@@ -37,6 +37,13 @@
 	<!-- Settings - Download -->
 	<string id="30200">Downloads</string>
 	<string id="30201">Pasta de downloads</string>
+	
+	<!-- Settings - Library -->
+	<string id="30300">Biblioteca</string>
+	<string id="30301">Pasta da biblioteca</string>
+	<string id="30302">[B]Info:[/B] Aqui serão salvos os items exportados como m3u.</string>
+	<string id="30303">[B]Nota:[/B] eles não serão integrados na biblioteca, mas estarão nos ficheiros.</string>
+	<string id="30304">Salvar a thumbnail dos items exportados</string>
 
 	<!-- Main Menu & Recomendations -->
 	<string id="30400">Music Box</string>
@@ -152,6 +159,14 @@
 	<string id="30814">Duração: </string>
 	<string id="30815">Tamanho: </string>
 	<string id="30816">Bitrate estimado: </string>
+	<string id="30817">Download album</string>
+	<string id="30818">Fazendo download do album ...</string>
+	<string id="30819">Descarregando track </string>
+	<string id="30820"> de </string>
+	<string id="30821">Album não encontrado...</string>
+	<string id="30822">Para exportar items, você deverá primeiro definir a pasta para o efeito nas definições do addon...</string>
+	<string id="30823">Exportar como .m3u</string>
+	<string id="30824">Exportado com sucesso</string>
 	
 	<!-- User space & accounts -->
 	<string id="30850">[B]Meu vk.com[/B] - minha música</string>
@@ -173,4 +188,5 @@
 	<string id="30866">Erro: vk.com email/telefone ou password está vazio</string>
 	<string id="30867">Erro: vk.com email/telefone ou password incorrecto</string>
 	<string id="30868">Erro: Vk.com retornou o seguinte erro: </string>
+	<string id="30869">[B][COLOR red]Em reprodução:[/COLOR][/B] </string>
 </strings>
