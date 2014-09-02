@@ -89,7 +89,8 @@ def Main_menu():
 		addDir(translate(30407),'1',38,addonfolder+artfolder+'mymusic.png')
 		addDir(translate(30408),'',44,addonfolder+artfolder+'favorites.png')
 		addDir(translate(30409),'',48,addonfolder+artfolder+'userspace.png')
-		addDir(translate(30410),'',53,addonfolder+artfolder+'configs.png',False)
+		addDir(translate(30410),'',53,addonfolder+artfolder+'fingerprint.png')
+		addDir(translate(30411),'',54,addonfolder+artfolder+'configs.png',False)
 
 ###################################################################################
 #RECOMENDATIONS
@@ -106,7 +107,7 @@ def Recomendations(url):
 		if selfAddon.getSetting('track_resolver_method')=="0": addLink('[B]'+artist+'[/B] - '+track_name,'',39,iconimage,artist = artist,track_name = track_name,type = 'song')
 		elif selfAddon.getSetting('track_resolver_method')=="1": addDir('[B]'+artist+'[/B] - '+track_name,'1',26,iconimage,artist = artist,track_name = track_name,search_query = artist+' '+track_name)
 	total_pages = decoded_data['tracks']['@attr']['totalPages']
-	if int(url)<int(total_pages): addDir(translate(30411),str(int(url)+1),1,addonfolder+artfolder+'next.png')
+	if int(url)<int(total_pages): addDir(translate(30412),str(int(url)+1),1,addonfolder+artfolder+'next.png')
 
 ###################################################################################
 #DIGSTER	
@@ -150,7 +151,7 @@ def List_digster_playlists(url,search_query):
 	#check if next page exist
 	codigo_fonte = abrir_url(digster_domain+'api/2.0.0/playlists?posts_per_page='+str(items_per_page)+'&paged='+str(int(url)+1)+search_query)
 	decoded_data = json.loads(codigo_fonte)
-	if len(decoded_data['playlists'])>0: addDir(translate(30411),str(int(url)+1),5,addonfolder+artfolder+'next.png',search_query = search_query)
+	if len(decoded_data['playlists'])>0: addDir(translate(30412),str(int(url)+1),5,addonfolder+artfolder+'next.png',search_query = search_query)
 
 def List_digster_tracks(url,country):
 	digster_domain = ['http://digster-adria.com/','http://www.digster.com.au/','http://www.digster.at/','http://nl.digster.be/','http://www.digster.dk/','http://digster.ee/','http://www.digster.fi/','http://www.digster.fr/','http://www.digsterplaylist.de/','http://digster.lv/','http://digster.lt/','http://digster.mx/','http://www.digster.nl/','http://www.digster.co.nz/','http://www.digster.no/','http://dev9.digster.umdev.se/','http://www.digster.pt/','http://www.digster.ro/','http://www.digster.es/','http://www.digster.se/','http://www.digster.ch/','http://www.digster.co.uk/','http://www.digster.fm/'][int(country)]
@@ -206,7 +207,7 @@ def List_atflick_movies(url,playlist_id):
 				addDir(name,movie_id,9,iconimage,type='soundtrack')
 			except: pass
 		#check if next page exist
-		if int(url)<int(decoded_data['pages']): addDir(translate(30411),str(int(url)+1),8,addonfolder+artfolder+'next.png',playlist_id = playlist_id)
+		if int(url)<int(decoded_data['pages']): addDir(translate(30412),str(int(url)+1),8,addonfolder+artfolder+'next.png',playlist_id = playlist_id)
 
 def List_atflick_albums(url):
 	codigo_fonte = abrir_url('http://ast.vionlabs.com/api/detail/movie/'+url)
@@ -262,7 +263,7 @@ def List_8tracks_suggestions(url,search_query):
 		except: iconimage = addonfolder+artfolder+'no_cover.png'
 		addDir('[B]'+username+'[/B] - '+playlist_name+' [I]('+tracks_count+' tracks)[/I]','1',33,iconimage,playlist_id = playlist_id,type='playlist')
 	total_pages = decoded_data['total_pages']
-	if int(url)<int(total_pages): addDir(translate(30411),str(int(url)+1),12,addonfolder+artfolder+'next.png',search_query = search_query)
+	if int(url)<int(total_pages): addDir(translate(30412),str(int(url)+1),12,addonfolder+artfolder+'next.png',search_query = search_query)
 		
 ###################################################################################
 #CHARTS
@@ -307,7 +308,7 @@ def Vkcom_popular(url):
 		codigo_fonte = codigo_fonte = abrir_url('https://api.vk.com/method/audio.getPopular.json?only_eng=1&count='+str(items_per_page)+'&offset='+str((int(url)*items_per_page))+'&access_token='+selfAddon.getSetting("vk_token"))
 		decoded_data = json.loads(codigo_fonte)
 		if len(decoded_data['response'])>0:
-			addDir(translate(30411),str(int(url)+1),14,addonfolder+artfolder+'next.png')
+			addDir(translate(30412),str(int(url)+1),14,addonfolder+artfolder+'next.png')
 	except: pass
 
 def Itunes_countries_menu(mode):
@@ -332,7 +333,7 @@ def Itunes_track_charts(url,country):
 			if selfAddon.getSetting('track_resolver_method')=="0": addLink('[COLOR yellow]'+str(x+1)+'[/COLOR] - [B]'+artist+'[/B] - '+track_name,'',39,iconimage,artist = artist,track_name = track_name,type = 'song')
 			elif selfAddon.getSetting('track_resolver_method')=="1": addDir('[COLOR yellow]'+str(x+1)+'[/COLOR] - [B]'+artist+'[/B] - '+track_name,'1',26,iconimage,artist = artist,track_name = track_name,search_query = artist+' '+track_name)
 		except: pass
-	if int(int(url)*items_per_page)<total_items: addDir(translate(30411),str(int(url)+1),17,addonfolder+artfolder+'next.png',country = country)
+	if int(int(url)*items_per_page)<total_items: addDir(translate(30412),str(int(url)+1),17,addonfolder+artfolder+'next.png',country = country)
 
 def Itunes_album_charts(url,country):
 	items_per_page = int(selfAddon.getSetting('items_per_page'))
@@ -348,7 +349,7 @@ def Itunes_album_charts(url,country):
 			except: iconimage = addonfolder+artfolder+'no_cover.png'
 			addDir('[COLOR yellow]'+str(x+1)+'[/COLOR] - [B]'+artist+'[/B] - '+album_name,id,19,iconimage,album = album_name,artist = artist,country = country,type = 'album')
 		except: pass
-	if int(int(url)*items_per_page)<total_items: addDir(translate(30411),str(int(url)+1),18,addonfolder+artfolder+'next.png',country = country)
+	if int(int(url)*items_per_page)<total_items: addDir(translate(30412),str(int(url)+1),18,addonfolder+artfolder+'next.png',country = country)
 
 def Itunes_list_album_tracks(url,album,country):
 	#api documentation: https://www.apple.com/itunes/affiliates/resources/documentation/itunes-store-web-service-search-api.html
@@ -379,7 +380,7 @@ def Beatport_top100(url,playlist_id):
 			if selfAddon.getSetting('track_resolver_method')=="0": addLink('[COLOR yellow]'+track_number+'[/COLOR] - [B]'+artist+'[/B] - '+track_name,'',39,iconimage,artist = artist,track_name = track_name,type = 'song')
 			elif selfAddon.getSetting('track_resolver_method')=="1": addDir('[COLOR yellow]'+track_number+'[/COLOR] - [B]'+artist+'[/B] - '+track_name,'1',26,iconimage,artist = artist,track_name = track_name,search_query = artist+' '+track_name)
 		except: pass
-	if track_number and int(track_number)<100: addDir(translate(30411),str(int(url)+1),20,addonfolder+artfolder+'next.png',playlist_id = playlist_id)
+	if track_number and int(track_number)<100: addDir(translate(30412),str(int(url)+1),20,addonfolder+artfolder+'next.png',playlist_id = playlist_id)
 
 def Officialcharts_uk(url,mode,playlist_id):
 	if playlist_id==None or playlist_id=='':
@@ -452,7 +453,7 @@ def Officialcharts_uk(url,mode,playlist_id):
 	try:
 		codigo_fonte_2 = abrir_url_custom('http://query.yahooapis.com/v1/public/yql?q=' + urllib.quote_plus('SELECT * FROM html(' + str((int(url)+1)*items_per_page-items_per_page+1) + ',' + str(items_per_page) + ') WHERE url="' + playlist_id + '" and xpath="//div[@class=\'cht-content-wrapper\']/div[@class=\'cht-content\']/div[@class=\'cht-entries\']/div[@class=\'cht-entry-wrapper\']"') + '&format=json&diagnostics=true&callback=', timeout=30)
 		decoded_data_2 = json.loads(codigo_fonte_2)
-		if len(decoded_data_2['query']['results']['div']) > 0: addDir(translate(30411),str(int(url)+1),mode,addonfolder+artfolder+'next.png',playlist_id = playlist_id)
+		if len(decoded_data_2['query']['results']['div']) > 0: addDir(translate(30412),str(int(url)+1),mode,addonfolder+artfolder+'next.png',playlist_id = playlist_id)
 	except: pass	
 	
 def Billboard_charts(url,mode,playlist_id):
@@ -491,7 +492,7 @@ def Billboard_charts(url,mode,playlist_id):
 	try:
 		codigo_fonte_2 = abrir_url_custom('http://query.yahooapis.com/v1/public/yql?q=' + urllib.quote_plus('SELECT * FROM feed(' + str((int(url)+1)*items_per_page-items_per_page+1) + ',' + str(items_per_page) + ') WHERE url="' + playlist_id + '"') + '&format=json&diagnostics=true&callback=', timeout=30)
 		decoded_data_2 = json.loads(codigo_fonte_2)
-		if len(decoded_data_2['query']['results']['item']) > 0: addDir(translate(30411),str(int(url)+1),mode,addonfolder+artfolder+'next.png',playlist_id = playlist_id)
+		if len(decoded_data_2['query']['results']['item']) > 0: addDir(translate(30412),str(int(url)+1),mode,addonfolder+artfolder+'next.png',playlist_id = playlist_id)
 	except: pass
 
 ###################################################################################
@@ -574,7 +575,7 @@ def Search_by_tracks(url,search_query):
 		duration = decoded_data['response'][x]['duration']
 		addLink('[B]'+artist+'[/B] - '+track_name,link,39,addonfolder+artfolder+'no_cover.png',artist = artist,track_name = track_name,item_id = item_id,duration = duration,manualsearch = False,type = 'song')
 	total_items = decoded_data['response'][0]
-	if index+items_per_page<int(total_items): addDir(translate(30411),str(int(url)+1),26,addonfolder+artfolder+'next.png',search_query = search_query)
+	if index+items_per_page<int(total_items): addDir(translate(30412),str(int(url)+1),26,addonfolder+artfolder+'next.png',search_query = search_query)
 	
 def Search_by_albums(url,search_query):
 	if search_query==None:
@@ -605,7 +606,7 @@ def Search_by_albums(url,search_query):
 				except: iconimage = addonfolder+artfolder+'no_cover.png'
 				addDir('[B]'+artist+'[/B] - '+album_name,mbid,28,iconimage,artist = artist,album = album_name,type = 'album')
 			total_items = decoded_data['results']['opensearch:totalResults']
-			if int(url)*items_per_page<int(total_items): addDir(translate(30411),str(int(url)+1),27,addonfolder+artfolder+'next.png',search_query = search_query)
+			if int(url)*items_per_page<int(total_items): addDir(translate(30412),str(int(url)+1),27,addonfolder+artfolder+'next.png',search_query = search_query)
 	except: pass
 
 def List_album_tracks(url,artist,album):
@@ -684,7 +685,7 @@ def Search_by_toptracks(url,search_query):
 				if selfAddon.getSetting('track_resolver_method')=="0": addLink('[COLOR yellow]'+str(((int(url)-1)*items_per_page)+x+1)+'[/COLOR] - [B]'+artist+'[/B] - '+track_name,'',39,iconimage,artist = artist,track_name = track_name,type = 'song')
 				elif selfAddon.getSetting('track_resolver_method')=="1": addDir('[COLOR yellow]'+str(((int(url)-1)*items_per_page)+x+1)+'[/COLOR] - [B]'+artist+'[/B] - '+track_name,'1',26,iconimage,artist = artist,track_name = track_name,search_query = artist+' '+track_name)
 			total_pages = decoded_data['toptracks']['@attr']['totalPages']
-			if int(url)<int(total_pages): addDir(translate(30411),str(int(url)+1),29,addonfolder+artfolder+'next.png',search_query = search_query)
+			if int(url)<int(total_pages): addDir(translate(30412),str(int(url)+1),29,addonfolder+artfolder+'next.png',search_query = search_query)
 	except: pass
 
 def Search_by_setlists(url,search_query):
@@ -717,7 +718,7 @@ def Search_by_setlists(url,search_query):
 					iconimage = addonfolder+artfolder+'no_cover.png'
 					addDir('[B]'+artist+'[/B] - '+location+' ('+date+')',id,31,iconimage,artist = artist,type='setlist')
 				total_items = decoded_data['setlists']['@total']
-				if int(url)*items_per_page<int(total_items): addDir(translate(30411),str(int(url)+1),30,addonfolder+artfolder+'next.png',search_query = search_query)
+				if int(url)*items_per_page<int(total_items): addDir(translate(30412),str(int(url)+1),30,addonfolder+artfolder+'next.png',search_query = search_query)
 		except: pass
 
 def List_setlist_tracks(url):
@@ -753,7 +754,7 @@ def Search_8tracks_playlists(url,search_query):
 		except: iconimage = addonfolder+artfolder+'no_cover.png'
 		addDir('[B]'+username+'[/B] - '+playlist_name+' [I]('+tracks_count+' tracks)[/I]','1',33,iconimage,playlist_id = playlist_id,type='playlist')
 	total_pages = decoded_data['total_pages']
-	if int(url)<int(total_pages): addDir(translate(30411),str(int(url)+1),32,addonfolder+artfolder+'next.png',search_query = search_query)
+	if int(url)<int(total_pages): addDir(translate(30412),str(int(url)+1),32,addonfolder+artfolder+'next.png',search_query = search_query)
 
 def List_8tracks_tracks(url,iconimage,playlist_id):
 	#official resolver method - more stable but no cache
@@ -919,7 +920,7 @@ def Search_atflick_soundtrack(url,search_query):
 			addDir(name,movie_id,9,iconimage,type='soundtrack')
 		except: pass
 	#check if next page exist
-	if int(url)*items_per_page+len(decoded_data['hits'])<int(decoded_data['total']): addDir(translate(30411),str(int(url)+1),34,addonfolder+artfolder+'next.png',playlist_id = playlist_id)
+	if int(url)*items_per_page+len(decoded_data['hits'])<int(decoded_data['total']): addDir(translate(30412),str(int(url)+1),34,addonfolder+artfolder+'next.png',playlist_id = playlist_id)
 
 def Search_by_similartracks(artist,track_name):
 	items_per_page = int(selfAddon.getSetting('items_per_page'))
@@ -1099,7 +1100,7 @@ def Download_whole_album(artist,album,url,country,iconimage):
 		for x in range(0, total_items):
 			if progress.iscanceled(): progress.close(); sys.exit(0)
 			progress.update(int((x)*100/total_items),translate(30818),translate(30819)+str(x+1)+translate(30820)+str(total_items))
-			params_list = eval(str(json.dumps(urlparse.parse_qs(urlparse.urlparse(decoded_data['result']['files'][x]['file']).query))))
+			params_list = eval(str(json.dumps(urlparse.parse_qs(decoded_data['result']['files'][x]['file'].split('?',1)[1]))))
 			artist = params_list['artist'][0]
 			track_name = params_list['track_name'][0]
 			name = artist+' - '+track_name
@@ -1182,7 +1183,7 @@ def Export_as_m3u(name,artist,album,url,country,iconimage,type):
 			if 'files' in decoded_data['result']:
 				total_items = len(decoded_data['result']['files'])
 				for x in range(0, total_items):
-					params_list = eval(str(json.dumps(urlparse.parse_qs(urlparse.urlparse(decoded_data['result']['files'][x]['file']).query))))
+					params_list = eval(str(json.dumps(urlparse.parse_qs(decoded_data['result']['files'][x]['file'].split('?',1)[1]))))
 					artist = params_list['artist'][0]
 					track_name = params_list['track_name'][0]
 					if len(str(total_items)) <= 2:
@@ -1202,7 +1203,7 @@ def Export_as_m3u(name,artist,album,url,country,iconimage,type):
 			if 'files' in decoded_data['result']:
 				total_items = len(decoded_data['result']['files'])
 				for x in range(0, total_items):
-					params_list = eval(str(json.dumps(urlparse.parse_qs(urlparse.urlparse(decoded_data['result']['files'][x]['file']).query))))
+					params_list = eval(str(json.dumps(urlparse.parse_qs(decoded_data['result']['files'][x]['file'].split('?',1)[1]))))
 					artist = params_list['artist'][0]
 					track_name = params_list['track_name'][0]
 					file_content += "#EXTINF:0,"+artist+" - "+track_name+"\nplugin://plugin.audio.musicbox/?mode=300&artist="+urllib.quote_plus(artist)+"&track_name="+urllib.quote_plus(track_name)+"\n"
@@ -1229,7 +1230,7 @@ def Export_as_m3u(name,artist,album,url,country,iconimage,type):
 			if 'files' in decoded_data['result']:
 				total_items = len(decoded_data['result']['files'])
 				for x in range(0, total_items):
-					params_list = eval(str(json.dumps(urlparse.parse_qs(urlparse.urlparse(decoded_data['result']['files'][x]['file']).query))))
+					params_list = eval(str(json.dumps(urlparse.parse_qs(decoded_data['result']['files'][x]['file'].split('?',1)[1]))))
 					artist = params_list['artist'][0]
 					track_name = params_list['track_name'][0]
 					file_content += "#EXTINF:0,"+artist+" - "+track_name+"\nplugin://plugin.audio.musicbox/?mode=300&artist="+urllib.quote_plus(artist)+"&track_name="+urllib.quote_plus(track_name)+"\n"
@@ -1513,7 +1514,7 @@ def My_vkcom(url,search_query):
 			codigo_fonte = codigo_fonte = abrir_url('https://api.vk.com/method/audio.get.json?count='+str(items_per_page)+'&offset='+str((int(url)*items_per_page))+'&access_token='+selfAddon.getSetting("vk_token"))
 			decoded_data = json.loads(codigo_fonte)
 			if len(decoded_data['response'])>0:
-				addDir(translate(30411),str(int(url)+1),49,addonfolder+artfolder+'next.png',search_query = search_query)
+				addDir(translate(30412),str(int(url)+1),49,addonfolder+artfolder+'next.png',search_query = search_query)
 		except: pass
 	elif search_query=='audio.getRecommendations': #vk.com user recomendations
 		userid_vkcom = str(json.loads(abrir_url('https://api.vk.com/method/users.get.json?access_token='+selfAddon.getSetting("vk_token")))['response'][0]['uid'])
@@ -1532,7 +1533,7 @@ def My_vkcom(url,search_query):
 			codigo_fonte = codigo_fonte = abrir_url('https://api.vk.com/method/audio.getRecommendations.json?uid='+userid_vkcom+'&count='+str(items_per_page)+'&offset='+str((int(url)*items_per_page))+'&access_token='+selfAddon.getSetting("vk_token"))
 			decoded_data = json.loads(codigo_fonte)
 			if len(decoded_data['response'])>0:
-				addDir(translate(30411),str(int(url)+1),49,addonfolder+artfolder+'next.png',search_query = search_query)
+				addDir(translate(30412),str(int(url)+1),49,addonfolder+artfolder+'next.png',search_query = search_query)
 		except: pass
 
 def My_lastfm(url,search_query):
@@ -1561,7 +1562,7 @@ def My_lastfm(url,search_query):
 					except: iconimage = addonfolder+artfolder+'no_cover.png'
 					addDir('[B]'+artist+'[/B] - '+album_name,mbid,28,iconimage,artist = artist,album = album_name,type = 'album')
 				total_pages = decoded_data[method[method.find('.get')+len('.get'):].lower()]['@attr']['totalPages']
-				if int(url)<int(total_pages): addDir(translate(30411),str(int(url)+1),50,addonfolder+artfolder+'next.png',search_query = search_query)
+				if int(url)<int(total_pages): addDir(translate(30412),str(int(url)+1),50,addonfolder+artfolder+'next.png',search_query = search_query)
 		except: pass
 	elif method=='user.getPlaylists': # retrieve user data regarding playlists
 		try:
@@ -1613,7 +1614,7 @@ def My_lastfm(url,search_query):
 						if selfAddon.getSetting('track_resolver_method')=="0": addLink('[B]'+artist+'[/B] - '+track_name,'',39,iconimage,artist = artist,track_name = track_name,type = 'song')
 						elif selfAddon.getSetting('track_resolver_method')=="1": addDir('[B]'+artist+'[/B] - '+track_name,'1',26,iconimage,artist = artist,track_name = track_name,search_query = artist+' '+track_name)
 				total_pages = decoded_data[method[method.find('.get')+len('.get'):].lower()]['@attr']['totalPages']
-				if int(url)<int(total_pages): addDir(translate(30411),str(int(url)+1),50,addonfolder+artfolder+'next.png',search_query = search_query)
+				if int(url)<int(total_pages): addDir(translate(30412),str(int(url)+1),50,addonfolder+artfolder+'next.png',search_query = search_query)
 		except: pass
 
 def List_lastfm_playlist_tracks(playlist_id):
@@ -1651,8 +1652,58 @@ def My_8tracks(url,search_query):
 		except: iconimage = addonfolder+artfolder+'no_cover.png'
 		addDir('[B]'+username+'[/B] - '+playlist_name+' [I]('+tracks_count+' tracks)[/I]','1',33,iconimage,playlist_id = playlist_id,type='playlist')
 	total_pages = decoded_data['total_pages']
-	if int(url)<int(total_pages): addDir(translate(30411),str(int(url)+1),52,addonfolder+artfolder+'next.png',search_query = search_query)
+	if int(url)<int(total_pages): addDir(translate(30412),str(int(url)+1),52,addonfolder+artfolder+'next.png',search_query = search_query)
 
+###################################################################################
+#AUDIO FINGERPRINT
+	
+def Fingerprint_audio(url):
+	import requests
+	import tempfile
+	#input file (if not provided)
+	if not url:
+		dialog = xbmcgui.Dialog()
+		url = dialog.browse(1,translate(30900),'myprograms')
+		if not url: sys.exit(0)
+	if os.path.splitext(url)[1] not in ['.mp3','.m4a','.wma','.wav','.aac','.ape','.flac']:
+		dialog = xbmcgui.Dialog()
+		ok = dialog.ok(translate(30400),translate(30901))
+		sys.exit(0)
+	#get the cookies
+	session = requests.session()
+	p = session.get('http://audiotag.info/index.php?simplehtml=1')
+	#upload audio file
+	p = session.post('http://audiotag.info/index.php', data={'step':'21'}, files={'uploadedfile': open(url, "rb")})
+	#ask for captcha
+	uploadedfilename = re.search('<input.*?name="uploadedfilename".*?value="(.+?)".*?>', p.text.encode('utf-8'))
+	if uploadedfilename:
+		tf = tempfile.NamedTemporaryFile(prefix='captcha_',suffix='.png',delete=False)
+		tf.write(session.get('http://audiotag.info/captcha/captcha_img.php').content)
+		tf.close()
+		img = xbmcgui.ControlImage(450,15,400,130,tf.name)
+		windlg = xbmcgui.WindowDialog()
+		windlg.addControl(img)
+		windlg.show()
+		captchaInput = xbmcgui.Dialog().numeric(0,translate(30902))
+		windlg.close()
+		os.unlink(tf.name)
+		#request results
+		if captchaInput:
+			p = session.post('http://audiotag.info/index.php', data={'step':'3','uploadedfilename':uploadedfilename.group(1),'capt':captchaInput,'Submit':'Next'})
+			math = re.findall('<table border="0" class="restable">.*?<th colspan="3" class="resheader"><SPAN class="percent">(.+?)</SPAN></th>.*?<tr><td align="right" class="column1"><strong> Title: </strong></td><td>(.+?)</td>.*?<tr><td align="right" class="column1"><strong> Artist: </strong></td><td>(.+?)</td></tr>.*?<tr><td align="right" class="column1"><strong> Album:  </strong></td><td>(.+?)</td></tr>.*?<tr><td align="right" class="column1"><strong> Year:   </strong></td><td>(.+?)</td></tr>.*?</table>	', p.text.encode('utf-8'), re.DOTALL)
+			if math:
+				for probability, track_name, artist, album, year in math:
+					if selfAddon.getSetting('track_resolver_method')=="0": addLink('[COLOR red]'+probability.strip()+'[/COLOR] - [B]'+artist.strip()+'[/B] - '+track_name.strip(),'',39,addonfolder+artfolder+'no_cover.png',artist = artist.strip(),track_name = track_name.strip(),type = 'song')
+					elif selfAddon.getSetting('track_resolver_method')=="1": addDir('[COLOR red]'+probability.strip()+'[/COLOR] - [B]'+artist.strip()+'[/B] - '+track_name.strip(),'1',26,addonfolder+artfolder+'no_cover.png',artist = artist.strip(),track_name = track_name.strip(),search_query = artist.strip()+' '+track_name.strip())
+			else:
+				errormessage = re.search('<DIV id="plaintext">.*?<h2>Oops! Something is wrong!</h2>.*?<p>(.+?)</p>.*?</DIV>', p.text.encode('utf-8'), re.DOTALL)
+				if errormessage:
+					dialog = xbmcgui.Dialog()
+					ok = dialog.ok(translate(30400),errormessage.group(1))
+					sys.exit(0)
+		else:
+			sys.exit(0)
+				
 ###################################################################################
 #SETTINGS
 
@@ -1766,6 +1817,11 @@ def addLink(name,url,mode,iconimage,**kwargs):
 				cm.append((translate(30812), 'RunPlugin(plugin://'+addon_id+'/?mode=42&url='+urllib.quote_plus(url)+'&name='+urllib.quote_plus(name)+extra_args+')'))
 		cm.append((translate(30805), 'RunPlugin(plugin://'+addon_id+'/?mode=40&url='+urllib.quote_plus(url)+'&name='+urllib.quote_plus(name)+extra_args+')'))
 		if selfAddon.getSetting('playing_type') == "0": cm.append((translate(30806), 'RunPlugin(plugin://'+addon_id+'/?mode=37&url='+urllib.quote_plus(url)+'&name='+urllib.quote_plus(name)+extra_args+')'))
+	elif type=='mymusic':
+		cm.append((translate(30825), 'XBMC.Container.Update(plugin://'+addon_id+'/?mode=53&url='+urllib.quote_plus(url)+')'))
+		if artist and track_name: #sounds tagged with ID3 tags
+			cm.append((translate(30804), 'XBMC.Container.Update(plugin://'+addon_id+'/?mode=35&artist='+urllib.quote_plus(artist)+'&track_name='+urllib.quote_plus(track_name)+')'))
+			cm.append((translate(30806), 'RunPlugin(plugin://'+addon_id+'/?mode=37&url='+urllib.quote_plus(url)+'&name='+urllib.quote_plus(name)+extra_args+')'))
 	liz.addContextMenuItems(cm, replaceItems=True)
 	ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]), url=u, listitem=liz, isFolder=False)
 	return ok
@@ -1977,8 +2033,10 @@ elif mode==49: My_vkcom(url,search_query)
 elif mode==50: My_lastfm(url,search_query)
 elif mode==51: List_lastfm_playlist_tracks(playlist_id)
 elif mode==52: My_8tracks(url,search_query)
+# Audio fingerprint
+elif mode==53: Fingerprint_audio(url)
 # Settings
-elif mode==53: Open_settings()
+elif mode==54: Open_settings()
 # External Calls
 elif mode==300:
 	if item_id:

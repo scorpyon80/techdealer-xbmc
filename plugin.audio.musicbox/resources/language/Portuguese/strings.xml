@@ -56,8 +56,9 @@
 	<string id="30407">Minhas músicas</string>
 	<string id="30408">Favoritos</string>
 	<string id="30409">Espaço do utilizador</string>
-	<string id="30410">Definições</string>
-	<string id="30411">[B]Próxima página >>[/B]</string>
+	<string id="30410">Audio fingerprint</string>
+	<string id="30411">Definições</string>
+	<string id="30412">[B]Próxima página >>[/B]</string>
 	
 	<!-- Digster -->
 	<string id="30425">Secções</string>
@@ -167,6 +168,7 @@
 	<string id="30822">Para exportar items, você deverá primeiro definir a pasta para o efeito nas definições do addon...</string>
 	<string id="30823">Exportar como .m3u</string>
 	<string id="30824">Exportado com sucesso</string>
+	<string id="30825">Fingerprint...</string>
 	
 	<!-- User space & accounts -->
 	<string id="30850">[B]Meu vk.com[/B] - minha música</string>
@@ -189,4 +191,9 @@
 	<string id="30867">Erro: vk.com email/telefone ou password incorrecto</string>
 	<string id="30868">Erro: Vk.com retornou o seguinte erro: </string>
 	<string id="30869">[B][COLOR red]Em reprodução:[/COLOR][/B] </string>
+	
+	<!-- Audio fingerprint -->
+	<string id="30900">Escolha o ficheiro de audio:</string>
+	<string id="30901">Fornecido ficheiro de audio inválido.</string>
+	<string id="30902">Insira o resultado:</string>
 </strings>

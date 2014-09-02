@@ -1,3 +1,8 @@
+Version 0.0.8 - (02/09/2014)
+* Fixed bug in export/download of abums in some platforms like iOS
+* Added context menu entries to search for similar tracks and video in tracks with ID3 tags in "My music"
+* Added "Audio fingerprint": Now you can identify unknown audio files on your system
+
 Version 0.0.7 - (30/08/2014)
 * 'My Music': Added support for listing of subfolders and more audio file formats
 * 'My Music': Read the ID3 tags from audio files
@@ -41,4 +46,3 @@ tags:summer,pool,party
 
 Version 0.0.1 - (24/06/2014)
 * First addon release
-
