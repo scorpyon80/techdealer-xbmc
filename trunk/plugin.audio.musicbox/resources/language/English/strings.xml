@@ -56,8 +56,9 @@
 	<string id="30407">My music</string>
 	<string id="30408">Favourites</string>
 	<string id="30409">User space</string>
-	<string id="30410">Settings</string>
-	<string id="30411">[B]Next page >>[/B]</string>
+	<string id="30410">Audio fingerprint</string>
+	<string id="30411">Settings</string>
+	<string id="30412">[B]Next page >>[/B]</string>
 	
 	<!-- Digster -->
 	<string id="30425">Sections</string>
@@ -167,6 +168,7 @@
 	<string id="30822">To export items, you should first set the folder for the effect on the addon settings...</string>
 	<string id="30823">Export as .m3u</string>
 	<string id="30824">Successfully exported</string>
+	<string id="30825">Fingerprint...</string>
 	
 	<!-- User space & accounts -->
 	<string id="30850">[B]My vk.com[/B] - my music</string>
@@ -189,4 +191,9 @@
 	<string id="30867">Error: wrong vk.com email/phone or password</string>
 	<string id="30868">Error: Vk.com returned the following error: </string>
 	<string id="30869">[B][COLOR red]Now playing:[/COLOR][/B] </string>
+	
+	<!-- Audio fingerprint -->
+	<string id="30900">Choose the audio file:</string>
+	<string id="30901">Invalid audio file supplied.</string>
+	<string id="30902">Enter the result:</string>
 </strings>
