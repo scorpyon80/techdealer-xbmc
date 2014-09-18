@@ -1626,7 +1626,8 @@ def My_lastfm(url,search_query,duration):
 				id = xbmcgui.Dialog().select(translate(30870),[translate(30872),translate(30873),translate(30874),translate(30875),translate(30876),translate(30877)])
 				if id != -1: duration = ['overall','7day','1month','3month','6month','12month'][id]
 				else: sys.exit(0)
-			codigo_fonte = abrir_url('http://ws.audioscrobbler.com/2.0/?method='+method+'&user='+userid_lastfm+'&duration='+duration+'&limit='+str(items_per_page)+'&page='+url+'&api_key=d49b72ffd881c2cb13b4595e67005ac4&format=json')
+			print duration
+			codigo_fonte = abrir_url('http://ws.audioscrobbler.com/2.0/?method='+method+'&user='+userid_lastfm+'&period='+duration+'&limit='+str(items_per_page)+'&page='+url+'&api_key=d49b72ffd881c2cb13b4595e67005ac4&format=json')
 		else: codigo_fonte = abrir_url('http://ws.audioscrobbler.com/2.0/?method='+method+'&user='+userid_lastfm+'&limit='+str(items_per_page)+'&page='+url+'&api_key=d49b72ffd881c2cb13b4595e67005ac4&format=json')
 	decoded_data = json.loads(codigo_fonte)
 	if method=='user.getTopAlbums': # retrieve user data regarding albums
