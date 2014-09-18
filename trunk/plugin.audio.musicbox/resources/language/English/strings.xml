@@ -33,6 +33,7 @@
 	<string id="30113">Download artist fanart</string>
 	<string id="30114">Hide Atflick soundtrack</string>
 	<string id="30115">Display 'Song info' option in Context Menu</string>
+	<string id="30116">Display 'Artist info' option in Context Menu</string>
 
 	<!-- Settings - Download -->
 	<string id="30200">Downloads</string>
@@ -169,6 +170,21 @@
 	<string id="30823">Export as .m3u</string>
 	<string id="30824">Successfully exported</string>
 	<string id="30825">Fingerprint...</string>
+	<string id="30826">Artist info</string>
+	<string id="30827">[COLOR green][B]Name:[/B][/COLOR] </string>
+	<string id="30828">[COLOR green][B]Active:[/B][/COLOR] </string>
+	<string id="30829">[COLOR green][B]Born:[/B][/COLOR] </string>
+	<string id="30830">[COLOR green][B]Died:[/B][/COLOR] </string>
+	<string id="30831">[COLOR green][B]Formed:[/B][/COLOR] </string>
+	<string id="30832">[COLOR green][B]Disbanded:[/B][/COLOR] </string>
+	<string id="30833">[COLOR green][B]Genre:[/B][/COLOR] </string>
+	<string id="30834">[COLOR green][B]Styles:[/B][/COLOR] </string>
+	<string id="30835">[COLOR green][B]Group Members:[/B][/COLOR] </string>
+	<string id="30836">[COLOR green][B]Also Known As:[/B][/COLOR] </string>
+	<string id="30837">[COLOR green][B]Member Of:[/B][/COLOR] </string>
+	<string id="30838">[COLOR green][B]Biography:[/B][/COLOR] </string>
+	<string id="30839">[COLOR red][B]No information found for this artist.[/B][/COLOR]</string>
+	<string id="30840"> in </string>
 	
 	<!-- User space & accounts -->
 	<string id="30850">[B]My vk.com[/B] - my music</string>
@@ -191,6 +207,14 @@
 	<string id="30867">Error: wrong vk.com email/phone or password</string>
 	<string id="30868">Error: Vk.com returned the following error: </string>
 	<string id="30869">[B][COLOR red]Now playing:[/COLOR][/B] </string>
+	<string id="30870">Choose a period of time:</string>
+	<string id="30871">[COLOR blue][B]Period of time:[/B][/COLOR] </string>
+	<string id="30872">overall</string>
+	<string id="30873">7 days</string>
+	<string id="30874">1 month</string>
+	<string id="30875">3 months</string>
+	<string id="30876">6 months</string>
+	<string id="30877">12 months</string>
 	
 	<!-- Audio fingerprint -->
 	<string id="30900">Choose the audio file:</string>

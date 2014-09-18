@@ -27,6 +27,7 @@
 	  <setting label="30113" type="bool" id="get_artist_fanart" default="false"/>
 	  <setting label="30114" type="bool" id="hide_soundtrack" default="false"/>
 	  <setting label="30115" type="bool" id="display_songinfo_cmenu" default="false"/>
+	  <setting label="30116" type="bool" id="display_artistinfo_cmenu" default="true"/>
    </category>
    <category label="30200">
 	  <setting label="30201" type="folder" id="downloads_folder" source="auto" option="writeable"/>
