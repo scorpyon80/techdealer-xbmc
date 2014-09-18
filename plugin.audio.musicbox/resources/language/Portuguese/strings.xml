@@ -33,6 +33,7 @@
 	<string id="30113">Transferir fanart do artista</string>
 	<string id="30114">Ocultar Atflick soundtrack</string>
 	<string id="30115">Mostrar opção 'Info da música' no Context Menu</string>
+	<string id="30116">Mostrar opção 'Info do artista' no Context Menu</string>
 
 	<!-- Settings - Download -->
 	<string id="30200">Downloads</string>
@@ -169,6 +170,21 @@
 	<string id="30823">Exportar como .m3u</string>
 	<string id="30824">Exportado com sucesso</string>
 	<string id="30825">Fingerprint...</string>
+	<string id="30826">Info do artista</string>
+	<string id="30827">[COLOR green][B]Nome:[/B][/COLOR] </string>
+	<string id="30828">[COLOR green][B]Anos em atividade:[/B][/COLOR] </string>
+	<string id="30829">[COLOR green][B]Nascimento:[/B][/COLOR] </string>
+	<string id="30830">[COLOR green][B]Falecimento:[/B][/COLOR] </string>
+	<string id="30831">[COLOR green][B]Formado:[/B][/COLOR] </string>
+	<string id="30832">[COLOR green][B]Desagrupado:[/B][/COLOR] </string>
+	<string id="30833">[COLOR green][B]Género:[/B][/COLOR] </string>
+	<string id="30834">[COLOR green][B]Estilo:[/B][/COLOR] </string>
+	<string id="30835">[COLOR green][B]Membros do grupo:[/B][/COLOR] </string>
+	<string id="30836">[COLOR green][B]Também conhecido como:[/B][/COLOR] </string>
+	<string id="30837">[COLOR green][B]Membro de:[/B][/COLOR] </string>
+	<string id="30838">[COLOR green][B]Biografia:[/B][/COLOR] </string>
+	<string id="30839">[COLOR red][B]Nenhuma informação encontrada para este artista.[/B][/COLOR]</string>
+	<string id="30840"> em </string>
 	
 	<!-- User space & accounts -->
 	<string id="30850">[B]Meu vk.com[/B] - minha música</string>
@@ -191,6 +207,14 @@
 	<string id="30867">Erro: vk.com email/telefone ou password incorrecto</string>
 	<string id="30868">Erro: Vk.com retornou o seguinte erro: </string>
 	<string id="30869">[B][COLOR red]Em reprodução:[/COLOR][/B] </string>
+	<string id="30870">Escolha um período de tempo:</string>
+	<string id="30871">[COLOR blue][B]Período de tempo:[/B][/COLOR] </string>
+	<string id="30872">Global</string>
+	<string id="30873">7 dias</string>
+	<string id="30874">1 mês</string>
+	<string id="30875">3 meses</string>
+	<string id="30876">6 meses</string>
+	<string id="30877">12 meses</string>
 	
 	<!-- Audio fingerprint -->
 	<string id="30900">Escolha o ficheiro de audio:</string>
