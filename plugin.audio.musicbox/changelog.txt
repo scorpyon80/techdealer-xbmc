@@ -1,3 +1,9 @@
+Version 0.0.10 - (21/12/2014)
+* Fixed Beatport top100
+* Fixed bug in Atflick soundtrack search
+* Added a new vk.com default token
+* Fixed Official Charts UK
+
 Version 0.0.9 - (18/09/2014)
 * Added "Artist info" in Context Menu that provides the biography and other info about the artist
 * Fixed a content encoding problem in export of m3u lists with unicode characters
