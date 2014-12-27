@@ -1,14 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 #
-# 2014 Techdealer
+# 2015 Techdealer
 
 ##############BIBLIOTECAS A IMPORTAR E DEFINICOES####################
 
 import urllib,urllib2,re,os,xbmcplugin,xbmcgui,xbmc,xbmcaddon,HTMLParser,time
 import json
 h = HTMLParser.HTMLParser()
-
 
 addon_id = 'plugin.video.footazo'
 selfAddon = xbmcaddon.Addon(id=addon_id)
@@ -184,8 +183,8 @@ def Procurar_fontes(url,name,iconimage):
 					resolver_iframe = kiwikz_resolver(iframe)
 					if resolver_iframe != 'kiwikz_nao resolvido':
 						playlist.add(resolver_iframe,xbmcgui.ListItem(name, thumbnailImage=iconimage))
-		#playwire embed player
-		html_playwire_embed = re.findall('<script.*?type\="text/javascript".*?src\=".*?cdn\.playwire\.com/bolt/js/embed\.min\.js".*?data\-publisher-id\="(.+?)".*?data\-video\-id\="(.+?)".*?>', codigo_fonte)
+		#playwire embed player - "old"
+		html_playwire_embed = re.findall('<script.*?".*?src\=".*?cdn\.playwire\.com/bolt/js/embed\.min\.js".*?data\-publisher-id\="(.+?)".*?data\-video\-id\="(.+?)".*?>', codigo_fonte)
 		for data_publisher, video_id in html_playwire_embed:
 			try:
 				codigo_fonte_2 = abrir_url('http://cdn.playwire.com/v2/'+data_publisher+'/config/'+video_id+'.json')
@@ -197,9 +196,24 @@ def Procurar_fontes(url,name,iconimage):
 					codigo_fonte_3 = abrir_url(decoded_data['src'])
 				except:
 					continue
-				match = re.search("<baseURL>(.+?)</baseURL>.*?url\=\"(.+?)\"",codigo_fonte_3)
+				match = re.search("<baseURL>(.+?)</baseURL>.*?url\=\"(.+?)\"",codigo_fonte_3,re.DOTALL)
 				if match:
-					playlist.add(match.group(1)+' playPath='+match.group(2),xbmcgui.ListItem(name, thumbnailImage=iconimage))
+					playlist.add(match.group(1)+'/'+match.group(2),xbmcgui.ListItem(name, thumbnailImage=iconimage))
+			else:
+				playlist.add(decoded_data['src'],xbmcgui.ListItem(name, thumbnailImage=iconimage))
+		#playwire embed player - "new"
+		html_playwire_embed = re.findall('\<script.*?data\-config\="(.+?)".*?>', codigo_fonte)
+		for video_id in html_playwire_embed:
+			codigo_fonte_2 = abrir_url(video_id)
+			decoded_data = json.loads(codigo_fonte_2)
+			if decoded_data['src'].endswith('.f4m'):
+				try:
+					codigo_fonte_3 = abrir_url(decoded_data['src'])
+				except:
+					continue
+				match = re.search("<baseURL>(.+?)</baseURL>.*?url\=\"(.+?)\"",codigo_fonte_3,re.DOTALL)
+				if match:
+					playlist.add(match.group(1)+'/'+match.group(2),xbmcgui.ListItem(name, thumbnailImage=iconimage))
 			else:
 				playlist.add(decoded_data['src'],xbmcgui.ListItem(name, thumbnailImage=iconimage))
 		#youtube embed em flash
@@ -384,7 +398,7 @@ def kiwikz_resolver(url):
 		return 'kiwikz_nao resolvido'
 
 ###################################################################################
-#FUNCOES JÁ FEITAS
+#FUNÇÕES GERAIS
 
 def abrir_url(url):
 	req = urllib2.Request(url)
@@ -438,7 +452,7 @@ def get_params():
                                 
         return param
 
-      
+
 params=get_params()
 url=None
 name=None
@@ -446,23 +460,14 @@ mode=None
 iconimage=None
 
 
-try:
-        url=urllib.unquote_plus(params["url"])
-except:
-        pass
-try:
-        name=urllib.unquote_plus(params["name"])
-except:
-        pass
-try:
-        mode=int(params["mode"])
-except:
-        pass
-
-try:        
-        iconimage=urllib.unquote_plus(params["iconimage"])
-except:
-        pass
+try: url=urllib.unquote_plus(params["url"])
+except: pass
+try: name=urllib.unquote_plus(params["name"])
+except: pass
+try: mode=int(params["mode"])
+except: pass
+try: iconimage=urllib.unquote_plus(params["iconimage"])
+except: pass
 
 
 print "Mode: "+str(mode)
@@ -470,13 +475,9 @@ print "URL: "+str(url)
 print "Name: "+str(name)
 print "Iconimage: "+str(iconimage)
 
-
-
-
 ###############################################################################################################
 #                                                   MODOS                                                     #
 ###############################################################################################################
-
 
 if mode==None: MENU()
 elif mode==1: Listar_Videos(url)

@@ -1,3 +1,7 @@
+Versão 0.0.3
+* Corrigida fonte PlayWire
+* Outras correcções
+
 Versão 0.0.2
 * Na visualização de comentários, nos comentário em resposta a outro em vez de ser mostrado "Resposta de User a User", passou apenas a ser mostrado apenas "Resposta de User", visto que por vezes as respostas são dirigidas a outras respostas e não ao comentário original
 * Outras correcções

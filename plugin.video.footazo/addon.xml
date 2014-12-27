@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.footazo" name="Footazo" version="0.0.2" provider-name="techdealer">
+<addon id="plugin.video.footazo" name="Footazo" version="0.0.3" provider-name="techdealer">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -7,10 +7,8 @@
     <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <language>en</language>
-    <platform>all</platform>
-    <summary lang="en">Footazo</summary>
-    <description lang="en">O mundo do futebol em vídeo.</description>
+    <summary>Footazo</summary>
+    <description>O mundo do futebol em vídeo.</description>
     <platform>all</platform>
   </extension>
 </addon>
