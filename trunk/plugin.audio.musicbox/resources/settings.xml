@@ -5,7 +5,7 @@
 	  <setting id="vk_email" type="text" label="30002" default=""/>
 	  <setting id="vk_password" type="text" label="30003" option="hidden" default=""/>
 	  <setting label="30004" type="lsep"/>
-      <setting id="vk_token" type="text" label="30005" default="9baa01b7b841f1a05a0fef48d26e9b74ead40f78757fb369f1417c22653fdcb376efa1f81ffe56cadae22" visible="false"/>
+      <setting id="vk_token" type="text" label="30005" default="" visible="false"/>
 	  <setting label="30006" type="lsep"/>
 	  <setting id="lastfm_email" type="text" label="30007" default=""/>
 	  <setting id="lastfm_password" type="text" label="30008" option="hidden" default=""/>

@@ -31,7 +31,7 @@
 	<string id="30111">Método Omgcatz é mais rápido e pode cachear playlists, Oficial é mais estável.</string>
 	<string id="30112">Digster País</string>
 	<string id="30113">Transferir fanart do artista</string>
-	<string id="30114">Ocultar Atflick soundtrack</string>
+	<string id="30114">Ocultar Whatsong soundtrack</string>
 	<string id="30115">Mostrar opção 'Info da música' no Context Menu</string>
 	<string id="30116">Mostrar opção 'Info do artista' no Context Menu</string>
 
@@ -50,7 +50,7 @@
 	<string id="30400">Music Box</string>
 	<string id="30401">Recomendações</string>
 	<string id="30402">Digster</string>
-	<string id="30403">Atflick Soundtrack</string>
+	<string id="30403">Whatsong Soundtrack</string>
 	<string id="30404">8Tracks Playlists</string>
 	<string id="30405">Charts</string>
 	<string id="30406">Procurar...</string>
@@ -67,17 +67,6 @@
 	<string id="30427">Clima</string>
 	<string id="30428">Ideal para</string>
 	
-	<!-- Atflick soundtrack -->
-	<string id="30450">Destaques</string>
-	<string id="30451">Adicionado recentemente</string>
-	<string id="30452">Toplist</string>
-	<string id="30453">Comédia</string>
-	<string id="30454">Romântico</string>
-	<string id="30455">Ação</string>
-	<string id="30456">Família</string>
-	<string id="30457">Ficção científica</string>
-	<string id="30458">Escolha um soundtrack:</string>
-	
 	<!-- 8tracks playlists -->
 	<string id="30475">Popular</string>
 	<string id="30476">Escolhas da Staff</string>
@@ -88,7 +77,8 @@
 	<!-- Charts -->
 	<string id="30500">[B]Itunes[/B] - Top músicas por país</string>
 	<string id="30501">[B]Itunes[/B] - Top albums por país</string>
-	<string id="30502">[B]Beatport[/B] - Top 100</string>
+	<string id="30502">[B]Deezer[/B] - Top Tracks</string>
+	<string id="30503">[B]Beatport[/B] - Top 100</string>
 	<string id="30504">[B]Official Charts UK[/B] - Vários charts</string>
 	<string id="30505">[B]Billboard[/B] - The Hot 100</string>
 	<string id="30506">[B]Billboard[/B] - 200</string>
@@ -108,6 +98,8 @@
 	<string id="30520">Official Charts UK - escolha:</string>
 	<string id="30521">Trocar chart...</string>
 	<string id="30522">[B]Vk.com[/B] - Música popular</string>
+	<string id="30523">[B]Traxsource[/B] - Top 100 Tracks</string>
+	<string id="30524">[B]Traxsource[/B] - Top 100 Singles</string>
 
 	<!-- Search and list content -->
 	<string id="30600">Pesquisar por artista, nome de música, playlist...</string>
@@ -154,7 +146,6 @@
 	<string id="30808">Mover para cima</string>
 	<string id="30809">Mover para baixo</string>
 	<string id="30810">Remover favorito</string>
-	<string id="30811">Soundtracks similares...</string>
 	<string id="30812">Info da música</string>
 	<string id="30813">Info não disponível para esta música</string>
 	<string id="30814">Duração: </string>

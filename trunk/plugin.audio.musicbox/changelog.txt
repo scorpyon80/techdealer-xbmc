@@ -1,3 +1,10 @@
+Version 0.0.11 - (16/04/2014)
+* Removed Atflick support and added Whatsong as alternative
+* Fixed Beatport Top 100
+* Artist Info: fixed script error when no data is found
+* Added Deezer and Traxsource to the Charts
+* Fixed 7Digital search by albums
+
 Version 0.0.10 - (21/12/2014)
 * Fixed Beatport top100
 * Fixed bug in Atflick soundtrack search
