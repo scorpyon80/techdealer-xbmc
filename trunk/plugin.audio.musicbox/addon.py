@@ -207,7 +207,7 @@ def List_whatsong_tracks(url):
 def Eighttracks_menu():
 	addDir(translate(30475),'1',10,'',search_query = 'all:popular')
 	addDir(translate(30476),'1',10,'',search_query = 'collection:staff-picks')
-	addDir(translate(30477),'1',10,'',search_query = 'collection:featured')
+	addDir(translate(30477),'1',10,'',search_query = 'collection:homepage')
 	addDir(translate(30478),'1',10,'',search_query = 'all:hot')
 	addDir(translate(30479),'1',10,'',search_query = 'all:recent')
 
@@ -944,13 +944,11 @@ def Search_by_similartracks(artist,track_name):
 def Search_videoclip(artist,track_name,album):
 	try:	
 		search_string = urllib.quote(artist + ' ' + track_name + ' music video')
-		codigo_fonte = abrir_url("http://gdata.youtube.com/feeds/api/videos?q="+ search_string +"&key=AIzaSyBbDY0UzvF5Es77M7S1UChMzNp0KsbaDPI&alt=json&category=Music&max-results=1")
+		codigo_fonte = abrir_url("https://www.googleapis.com/youtube/v3/search?part=id%2Csnippet&q="+ search_string +"&type=Music&maxResults=1&key=AIzaSyBbDY0UzvF5Es77M7S1UChMzNp0KsbaDPI")
 	except: codigo_fonte = ''
 	if codigo_fonte:
 		try:
-			codigo_fonte = eval(codigo_fonte)
-			video_url = codigo_fonte["feed"]["entry"][0]["media$group"]['media$content'][0]['url']
-			match = re.compile('v/(.+?)\?').findall(video_url)
+			match = re.compile('"videoId": "(.+?)"').findall(codigo_fonte)
 		except: match = []
 		if match:
 			print 'Grabbed youtube id',match[0]

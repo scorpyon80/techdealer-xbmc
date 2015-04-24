@@ -1,4 +1,8 @@
-Version 0.0.11 - (16/04/2014)
+Version 0.0.12 - (24/04/2015)
+* Fixed 8tracks Featured playlists
+* Updated youtube API to V3 (ty Mafarricos)
+
+Version 0.0.11 - (16/04/2015)
 * Removed Atflick support and added Whatsong as alternative
 * Fixed Beatport Top 100
 * Artist Info: fixed script error when no data is found
