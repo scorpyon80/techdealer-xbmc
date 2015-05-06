@@ -1,3 +1,6 @@
+Version 0.0.13 - (07/05/2015)
+* Fixed omgcatz resolve method
+
 Version 0.0.12 - (24/04/2015)
 * Fixed 8tracks Featured playlists
 * Updated youtube API to V3 (ty Mafarricos)
