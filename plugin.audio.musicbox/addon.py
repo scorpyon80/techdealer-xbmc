@@ -1070,7 +1070,7 @@ def Download_whole_album(artist,album,url,country,iconimage):
 	progress.create(translate(30400),translate(30818))
 	progress.update(0)
 	#albums from itunes charts
-	if country: json_response = xbmc.executeJSONRPC('{"jsonrpc": "2.0", "method": "Files.GetDirectory", "params": {"directory" : "plugin://'+addon_id+'/?mode=19&url='+url+'&album='+album+'&country='+country+'"}, "id": 1 }')
+	if country: json_response = xbmc.executeJSONRPC('{"jsonrpc": "2.0", "method": "Files.GetDirectory", "params": {"directory" : "plugin://'+addon_id+'/?mode=17&url='+url+'&album='+album+'&country='+country+'"}, "id": 1 }')
 	#other albums from last.fm/7digital
 	else: json_response = xbmc.executeJSONRPC('{"jsonrpc": "2.0", "method": "Files.GetDirectory", "params": {"directory" : "plugin://'+addon_id+'/?mode=28&url='+url+'&artist='+artist+'&album='+album+'"}, "id": 1 }')
 	decoded_data = json.loads(json_response)
@@ -1130,7 +1130,7 @@ def Export_as_m3u(name,artist,album,url,country,iconimage,type):
 		if type=='album' or type=='fav_album':
 			file_content = "#EXTM3U\n"
 			#albums from itunes charts
-			if country: json_response = xbmc.executeJSONRPC('{"jsonrpc": "2.0", "method": "Files.GetDirectory", "params": {"directory" : "plugin://'+addon_id+'/?mode=19&url='+url+'&album='+album+'&country='+country+'"}, "id": 1 }')
+			if country: json_response = xbmc.executeJSONRPC('{"jsonrpc": "2.0", "method": "Files.GetDirectory", "params": {"directory" : "plugin://'+addon_id+'/?mode=17&url='+url+'&album='+album+'&country='+country+'"}, "id": 1 }')
 			#other albums from last.fm/7digital
 			else: json_response = xbmc.executeJSONRPC('{"jsonrpc": "2.0", "method": "Files.GetDirectory", "params": {"directory" : "plugin://'+addon_id+'/?mode=28&url='+url+'&artist='+artist+'&album='+album+'"}, "id": 1 }')
 			decoded_data = json.loads(json_response)
