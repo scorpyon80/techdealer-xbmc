@@ -17,9 +17,9 @@ artfolder = '/resources/img/'
 #TELETEXT WINDOW
 
 class TeletextWindow(xbmcgui.WindowDialog):
-	def __init__(self,canal,page):
+	def __init__(self,channel,page):
 		self.page = page
-		self.canal = canal
+		self.channel = channel
 		self.Open_page()
 
 	def onControl(self, control):
@@ -39,9 +39,9 @@ class TeletextWindow(xbmcgui.WindowDialog):
 		elif control == self.addon_exit: #exit
 			self.close()
 		elif len(channel_list) > 1 and control == self.switch_channel: #switch channel
-			tmp_canal = Choose_channel()
-			if tmp_canal > 0:
-				self.canal = tmp_canal
+			tmp_channel = Choose_channel()
+			if tmp_channel > 0:
+				self.channel = tmp_channel
 				self.page = 100
 				self.Open_page()
 		
@@ -71,17 +71,17 @@ class TeletextWindow(xbmcgui.WindowDialog):
 		elif action_id == 10 or action_id == 92: #esc or backspace
 			self.close()
 		elif len(channel_list) > 1 and action_id == 12: #spacebar
-			tmp_canal = Choose_channel()
-			if tmp_canal > 0:
-				self.canal = tmp_canal
+			tmp_channel = Choose_channel()
+			if tmp_channel > 0:
+				self.channel = tmp_channel
 				self.page = 100
 				self.Open_page()
 		
 	def Open_page(self):
 		self.sub_page = 1
 		
-		if self.canal == 1: self.txt_array = RTP_resolver(self.page)
-		elif self.canal == 2: self.txt_array = SIC_resolver(self.page)
+		if self.channel == 1: self.txt_array = RTP_resolver(self.page)
+		elif self.channel == 2: self.txt_array = SIC_resolver(self.page)
 		
 		if len(self.txt_array)>0:
 			self.background = xbmcgui.ControlImage(0,0,1280,720,self.txt_array[self.sub_page-1])
