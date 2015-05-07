@@ -12,5 +12,6 @@
     <summary lang="en">Msn Vídeo Portugal</summary>
     <description lang="en">Acesso aos videos do portal Msn Vídeo Portugal.</description>
     <platform>all</platform>
+    <broken>deprecated</broken>
   </extension>
 </addon>
