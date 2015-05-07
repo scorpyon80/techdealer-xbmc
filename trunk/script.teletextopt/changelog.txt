@@ -1,3 +1,7 @@
+Versão 0.2.0
+* Limpeza de código
+* Removido o acesso ao teletexto da Sic, visto que deixou de estar disponível online
+
 Versão 0.1.5
 * Correcção de bugs
 
@@ -24,4 +28,3 @@ Versão 0.0.2
 
 Versão 0.0.1
 * Lançamento da primeira versão do addon
-
