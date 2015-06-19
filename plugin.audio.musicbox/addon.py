@@ -10,7 +10,7 @@ import json
 import random
 import requests
 import hashlib
-import cookielib
+import vkAuth
 h = HTMLParser.HTMLParser()
 
 import SimpleDownloader as downloader
@@ -46,32 +46,19 @@ def Main_menu():
 		if selfAddon.getSetting('vk_token')!=default_vk_token:
 			selfAddon.setSetting('vk_token',default_vk_token)
 	else:
-		try:
-			#login in vk.com - login in account
-			cookies = cookielib.CookieJar()
-			opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookies))
-			response = opener.open('https://login.vk.com/?act=login&email='+selfAddon.getSetting('vk_email')+'&pass='+selfAddon.getSetting('vk_password')+'&expire=&vk=')
-			#login in vk.com - get the token
-			request2=urllib2.Request('https://oauth.vk.com/authorize?client_id=2648691&scope=audio,offline&redirect_uri=http://oauth.vk.com/blank.html&display=touch&response_type=token')
-			cookies.add_cookie_header(request2)
-			response2 = opener.open(request2)
-			selfAddon.setSetting('vk_token',re.search('access_token=(.+?)&', response2.geturl()).group(1))
+		#login in vk.com - get the token
+		email = selfAddon.getSetting('vk_email')
+		passw = selfAddon.getSetting('vk_password')
+		token = vkAuth.getToken(email, passw, 2648691, 'audio,offline')
+		#check login status
+		if token == False:
+			dialog = xbmcgui.Dialog()
+			ok = dialog.ok(translate(30400),translate(30867))
+			xbmcaddon.Addon(addon_id).openSettings()
+			return
+		else:
+			selfAddon.setSetting('vk_token',token)
 			notification(translate(30861),translate(30865),'4000',addonfolder+artfolder+'notif_vk.png')
-		except:
-			try:
-				#if the previous step fail, maybe is necessary give permissions to the application (if used by 1st time), lets try...
-				request2=urllib2.Request(re.search('<form method="post" action="(.+?)">', response2.read()).group(1),{})
-				request2.add_header('Referer', 'https://oauth.vk.com/authorize?client_id=2648691&scope=audio,offline&redirect_uri=http://oauth.vk.com/blank.html&display=touch&response_type=token')
-				cookies.add_cookie_header(request2)
-				response2 = opener.open(request2)
-				selfAddon.setSetting('vk_token',re.search('access_token=(.+?)&', response2.geturl()).group(1))
-				notification(translate(30861),translate(30865),'4000',addonfolder+artfolder+'notif_vk.png')
-			except:
-				#if the previous step fail, the account provided is invalid
-				dialog = xbmcgui.Dialog()
-				ok = dialog.ok(translate(30400),translate(30867))
-				xbmcaddon.Addon(addon_id).openSettings()
-				return
 	#check if token is valid
 	codigo_fonte = abrir_url('https://api.vk.com/method/audio.search.json?q=eminem&access_token='+selfAddon.getSetting("vk_token"))
 	decoded_data = json.loads(codigo_fonte)
@@ -175,14 +162,15 @@ def List_digster_tracks(url,country):
 
 def List_whatsong_movies(url):
 	items_per_page = 12 #impossible to use a custom value currently
-	codigo_fonte = abrir_url_custom('http://www.what-song.com/ajax/getMoviePosters', headers = {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'X-Requested-With':'XMLHttpRequest', 'Referer':'http://www.what-song.com/'}, post = {'count': str(int(url)*items_per_page)})
+	codigo_fonte = abrir_url_custom('http://www.what-song.com/ajax/getMoviePosters', headers = {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'X-Requested-With':'XMLHttpRequest', 'Referer':'http://www.what-song.com/'}, post = {'count': str(int(url)*items_per_page), 'type': 'recent'})
 	decoded_data = json.loads(codigo_fonte)
 	for x in range(0, len(decoded_data['data'])):
 		try:
 			name = decoded_data['data'][x]['title'].encode("utf8")
+			name_url = decoded_data['data'][x]['title'].encode("utf8").replace(" ", "-").replace(":", "").replace(",", "")
 			movie_id = decoded_data['data'][x]['id']
-			iconimage = 'http://www.what-song.com.rsz.io/images/posters/'+movie_id+'/256.jpg'
-			link = 'http://www.what-song.com/Movies/Soundtrack/'+movie_id+'/'+name
+			iconimage = 'http://www.what-song.com/images/posters/'+movie_id+'/400.jpg'
+			link = 'http://www.what-song.com/Movies/Soundtrack/'+movie_id+'/'+name_url
 			addDir(name,link,8,iconimage,type='soundtrack')
 		except: pass
 	#check if next page exist
@@ -194,10 +182,12 @@ def List_whatsong_movies(url):
 
 def List_whatsong_tracks(url):
 	codigo_fonte = abrir_url(url)
-	match = re.findall('\<tr.*?itemtype\="http\://schema\.org/MusicRecording"\>.*?\<songtitle\>(.*?)\</songtitle\>.*?\<songartist\>.*?\<a.*?\>(.*?)\</a\>.*?\</songartist\>.*?\</tr\>', codigo_fonte, re.DOTALL)
+	match = re.findall('<td class="soundtrack-play-song">.*?<songtitle>(.*?)<.*?</songtitle>.*?<songartist>(.*?)</songartist>', codigo_fonte, re.DOTALL)
 	for track_name, artist in match:
-		artist = (artist.strip()).replace("&amp;", "&")
-		track_name = (track_name.strip()).replace("&amp;", "&")
+		artist = re.sub('<[^>]*>', '', artist)
+		artist = re.sub('\s+',' ', artist.strip()).replace("&amp;", "&")
+		track_name = re.sub('<[^>]*>', '', track_name)
+		track_name = re.sub('\s+',' ', track_name.strip()).replace("&amp;", "&")
 		if selfAddon.getSetting('track_resolver_method')=="0": addLink('[B]'+artist+'[/B] - '+track_name,'',39,addonfolder+artfolder+'no_cover.png',artist = artist,track_name = track_name,type = 'song')
 		elif selfAddon.getSetting('track_resolver_method')=="1": addDir('[B]'+artist+'[/B] - '+track_name,'1',26,addonfolder+artfolder+'no_cover.png',artist = artist,track_name = track_name,search_query = artist+' '+track_name)
 
@@ -546,7 +536,7 @@ def Search_main():
 		#soundtracks
 		if selfAddon.getSetting('hide_soundtrack')=="false":
 			codigo_fonte = abrir_url('http://www.what-song.com/Activity/Search?q='+urllib.quote(search_query))
-			soundtrack_html_match = re.search('<div class="col-md-4">.*?<h3>Movies.*?</h3>.*?<ul.*?>(.+?)</ul>.*?</div>', codigo_fonte, re.DOTALL)
+			soundtrack_html_match = re.search('<ul class="list.*?" title="movielist">(.+?)</div>', codigo_fonte, re.DOTALL)
 			if soundtrack_html_match:
 				soundtrack_match = re.findall('<li>.*?<a href="(.*?)">(.*?)</a>.*?</li>', soundtrack_html_match.group(1), re.DOTALL)
 				total_items = len(soundtrack_match)
@@ -906,14 +896,14 @@ def List_8tracks_tracks(url,iconimage,playlist_id):
 def Search_whatsong_soundtrack(search_query):
 	items_per_page = int(selfAddon.getSetting('items_per_page'))
 	codigo_fonte = abrir_url('http://www.what-song.com/Activity/Search?q='+urllib.quote(search_query))
-	soundtrack_html_match = re.search('<div class="col-md-4">.*?<h3>Movies.*?</h3>.*?<ul.*?>(.+?)</ul>.*?</div>', codigo_fonte, re.DOTALL)
+	soundtrack_html_match = re.search('<ul class="list.*?" title="movielist">(.+?)</div>', codigo_fonte, re.DOTALL)
 	if soundtrack_html_match:
 		soundtrack_match = re.findall('<li>.*?<a href="(.*?)">(.*?)</a>.*?</li>', soundtrack_html_match.group(1), re.DOTALL)
 		for link, name in soundtrack_match:
 			try:
 				link = 'http://www.what-song.com'+link
 				movie_id = re.search('/Movies/Soundtrack/([\d]+?)/', link).group(1)
-				iconimage = 'http://www.what-song.com.rsz.io/images/posters/'+movie_id+'/256.jpg'
+				iconimage = 'http://www.what-song.com/images/posters/'+movie_id+'/400.jpg'
 				addDir(name,link,8,iconimage,type='soundtrack')
 			except: pass
 
