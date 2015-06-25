@@ -1,3 +1,6 @@
+Version 0.1.1 - (26/06/2015)
+* Performance improvements (ty mammo0)
+
 Version 0.1.0 - (19/06/2015)
 * New method to login to vk.com (ty mammo0)
 * Fixed Whatsong Soundtrack
