@@ -36,49 +36,82 @@ def translate(text):
 #MAIN MENU
 
 def Main_menu():
+	#flag if a vk.com token is valid
+	validVKToken = False
+	
+	#if empty vk.com email xor password
 	if bool(selfAddon.getSetting('vk_email')=="") ^ bool(selfAddon.getSetting('vk_password')==""):
 		dialog = xbmcgui.Dialog()
 		ok = dialog.ok(translate(30400),translate(30866))
 		selfAddon.setSetting('vk_token','')
 		xbmcaddon.Addon(addon_id).openSettings()
-		return
+		return	
+	#if empty vk.com email and password
 	elif selfAddon.getSetting('vk_email')=="" and selfAddon.getSetting('vk_password')=="":
+		if selfAddon.getSetting('vk_token_email') or selfAddon.getSetting('vk_token_password'):
+			selfAddon.setSetting('vk_token_email','')
+			selfAddon.setSetting('vk_token_password','')
 		if selfAddon.getSetting('vk_token')!=default_vk_token:
 			selfAddon.setSetting('vk_token',default_vk_token)
-	else:
-		#login in vk.com - get the token
-		email = selfAddon.getSetting('vk_email')
-		passw = selfAddon.getSetting('vk_password')
-		token = vkAuth.getToken(email, passw, 2648691, 'audio,offline')
-		#check login status
-		if token == False:
+		#test default token
+		token = selfAddon.getSetting('vk_token')
+		validVKToken = vkAuth.isTokenValid(token)
+		#if there was an error, inform the user
+		if validVKToken != True:
 			dialog = xbmcgui.Dialog()
-			ok = dialog.ok(translate(30400),translate(30867))
+			ok = dialog.ok(translate(30400),translate(30868)+validVKToken)
 			xbmcaddon.Addon(addon_id).openSettings()
 			return
-		else:
-			selfAddon.setSetting('vk_token',token)
-			notification(translate(30861),translate(30865),'4000',addonfolder+artfolder+'notif_vk.png')
-	#check if token is valid
-	codigo_fonte = abrir_url('https://api.vk.com/method/audio.search.json?q=eminem&access_token='+selfAddon.getSetting("vk_token"))
-	decoded_data = json.loads(codigo_fonte)
-	if 'error' in decoded_data:
-		dialog = xbmcgui.Dialog()
-		try: ok = dialog.ok(translate(30400),translate(30868)+str(decoded_data['error']['error_msg']))
-		except: ok = dialog.ok(translate(30400),translate(30868)+str(decoded_data['error']))
-		xbmcaddon.Addon(addon_id).openSettings()
+	#if credentials are given
 	else:
-		addDir(translate(30401),'1',1,addonfolder+artfolder+'recomended.png')
-		addDir(translate(30402),'1',2,addonfolder+artfolder+'digster.png')
-		if selfAddon.getSetting('hide_soundtrack')=="false": addDir(translate(30403),'0',7,addonfolder+artfolder+'whatsong.png')
-		addDir(translate(30404),'1',9,addonfolder+artfolder+'8tracks.png')
-		addDir(translate(30405),'1',11,addonfolder+artfolder+'charts.png')
-		addDir(translate(30406),'1',25,addonfolder+artfolder+'search.png')
-		addDir(translate(30407),'1',38,addonfolder+artfolder+'mymusic.png')
-		addDir(translate(30408),'',44,addonfolder+artfolder+'favorites.png')
-		addDir(translate(30409),'',48,addonfolder+artfolder+'userspace.png')
-		addDir(translate(30410),'',53,addonfolder+artfolder+'fingerprint.png')
-		addDir(translate(30411),'',54,addonfolder+artfolder+'configs.png',False)
+		#clear default token, if provided
+		if selfAddon.getSetting('vk_token') == default_vk_token: selfAddon.setSetting('vk_token','')
+		#check if user changed vk_email/vk_password or if vk_token_email/vk_token_password is empty (need reauth)
+		if selfAddon.getSetting('vk_token_email')!=selfAddon.getSetting('vk_email') or selfAddon.getSetting('vk_token_password')!=selfAddon.getSetting('vk_password'):
+			selfAddon.setSetting('vk_token_email','')
+			selfAddon.setSetting('vk_token_password','')
+			selfAddon.setSetting('vk_token','')
+		#check current token
+		if selfAddon.getSetting('vk_token'): validVKToken = vkAuth.isTokenValid(selfAddon.getSetting('vk_token'))
+		#if the token provided is not valid, login and generate a new one
+		if validVKToken != True:
+			#login in vk.com - get the token
+			email = selfAddon.getSetting('vk_email')
+			passw = selfAddon.getSetting('vk_password')
+			token = vkAuth.getToken(email, passw, 2648691, 'audio,offline')
+			#check login status
+			if token == False:
+				dialog = xbmcgui.Dialog()
+				ok = dialog.ok(translate(30400),translate(30867))
+				xbmcaddon.Addon(addon_id).openSettings()
+				return
+			else:
+				#test the new token
+				validVKToken = vkAuth.isTokenValid(token)
+				#if there was an error, inform the user
+				if validVKToken != True:
+					dialog = xbmcgui.Dialog()
+					ok = dialog.ok(translate(30400),translate(30868)+validVKToken)
+					xbmcaddon.Addon(addon_id).openSettings()
+					return
+				else:
+					selfAddon.setSetting('vk_token_email',email)
+					selfAddon.setSetting('vk_token_password',passw)
+					selfAddon.setSetting('vk_token',token)
+					notification(translate(30861),translate(30865),'4000',addonfolder+artfolder+'notif_vk.png')
+	
+	#everything should be fine now
+	addDir(translate(30401),'1',1,addonfolder+artfolder+'recomended.png')
+	addDir(translate(30402),'1',2,addonfolder+artfolder+'digster.png')
+	if selfAddon.getSetting('hide_soundtrack')=="false": addDir(translate(30403),'0',7,addonfolder+artfolder+'whatsong.png')
+	addDir(translate(30404),'1',9,addonfolder+artfolder+'8tracks.png')
+	addDir(translate(30405),'1',11,addonfolder+artfolder+'charts.png')
+	addDir(translate(30406),'1',25,addonfolder+artfolder+'search.png')
+	addDir(translate(30407),'1',38,addonfolder+artfolder+'mymusic.png')
+	addDir(translate(30408),'',44,addonfolder+artfolder+'favorites.png')
+	addDir(translate(30409),'',48,addonfolder+artfolder+'userspace.png')
+	addDir(translate(30410),'',53,addonfolder+artfolder+'fingerprint.png')
+	addDir(translate(30411),'',54,addonfolder+artfolder+'configs.png',False)
 
 ###################################################################################
 #RECOMENDATIONS

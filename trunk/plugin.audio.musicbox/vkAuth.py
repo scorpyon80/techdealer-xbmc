@@ -5,7 +5,7 @@
 
 ##############LIBRARIES TO IMPORT AND SETTINGS####################
 
-import urllib,urllib2,re
+import urllib,urllib2,re,json
 from HTMLParser import HTMLParser
 import cookielib
 
@@ -76,3 +76,20 @@ def getToken(email, password, client_id, scope):
 			return re.search('access_token=(.+?)&', response.geturl()).group(1)
 		except: #login failed
 			return False
+
+###################################################################################
+#Check if the vk.com token is valid
+
+def isTokenValid(token):
+	req = urllib2.Request('https://api.vk.com/method/audio.search.json?q=eminem&access_token='+token)
+	req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; rv:33.0) Gecko/20100101 Firefox/33.0')
+	response = urllib2.urlopen(req)
+	codigo_fonte=response.read()
+	response.close()
+	decoded_data = json.loads(codigo_fonte)
+	if 'error' in decoded_data:
+		#return the detailed error message
+		try: return str(decoded_data['error']['error_msg'])
+		except: return str(decoded_data['error'])
+	else:
+		return True
